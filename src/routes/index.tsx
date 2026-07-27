@@ -630,7 +630,6 @@ function Index() {
                   {featured.map((dish, i) => (
                     <motion.article
                       key={dish.id}
-                      variants={itemVariants}
                       custom={i}
                       initial="rest"
                       whileHover="hover"
@@ -749,10 +748,7 @@ function Index() {
                       initial="rest"
                       whileHover="hover"
                       animate="rest"
-                      variants={{
-                        rest: { y: 0, transition: { type: "spring", stiffness: 300, damping: 25 } },
-                        hover: { y: -6, transition: { type: "spring", stiffness: 400, damping: 25 } }
-                      }}
+                      
                       className="rounded-sm border border-white/10 bg-white/5 p-5 backdrop-blur-sm"
                     >
                       <div className="flex gap-1 mb-3">
