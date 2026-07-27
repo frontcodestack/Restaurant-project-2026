@@ -48,7 +48,6 @@ import "events";
 import "http2";
 import "../_libs/follow-redirects.mjs";
 import "zlib";
-import "../_libs/i18next.mjs";
 import "../_libs/use-sync-external-store.mjs";
 import "../_libs/motion-dom.mjs";
 import "../_libs/motion-utils.mjs";

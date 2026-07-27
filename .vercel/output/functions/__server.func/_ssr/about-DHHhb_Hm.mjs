@@ -22,7 +22,6 @@ import "../_libs/isbot.mjs";
 import "../_libs/tanstack__react-query.mjs";
 import "../_libs/tanstack__query-core.mjs";
 import "./strapi-DoZBEunp.mjs";
-import "../_libs/i18next.mjs";
 import "../_libs/use-sync-external-store.mjs";
 import "../_libs/motion-dom.mjs";
 import "../_libs/motion-utils.mjs";

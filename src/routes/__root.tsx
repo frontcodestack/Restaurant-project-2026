@@ -1,5 +1,8 @@
-import i18n from "../i18n/i18n";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import "../i18n/i18n";
+
+import { useEffect, useState, type ReactNode } from "react";
+import { useTranslation } from "react-i18next";
+
 import {
   Outlet,
   Link,
@@ -9,20 +12,30 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 
-import { useEffect, useState, type ReactNode } from "react";
+import {
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
 
 import appCss from "../styles.css?url";
+
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { ThemeProvider } from "../components/layout/ThemeProvider";
 import { Navbar } from "../components/layout/Navbar";
 import { Footer } from "../components/layout/Footer";
 import { FloatingActions } from "../components/layout/FloatingActions";
 
+/* -------------------------------------------------------------------------- */
+/*                                404 PAGE                                    */
+/* -------------------------------------------------------------------------- */
+
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
+        <h1 className="text-7xl font-bold text-foreground">
+          404
+        </h1>
 
         <h2 className="mt-4 text-xl font-semibold text-foreground">
           Page not found
@@ -35,7 +48,7 @@ function NotFoundComponent() {
         <div className="mt-6">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
             Go home
           </Link>
@@ -44,6 +57,10 @@ function NotFoundComponent() {
     </div>
   );
 }
+
+/* -------------------------------------------------------------------------- */
+/*                               ERROR PAGE                                   */
+/* -------------------------------------------------------------------------- */
 
 function ErrorComponent({
   error,
@@ -60,6 +77,11 @@ function ErrorComponent({
     });
   }, [error]);
 
+  const handleRetry = () => {
+    router.invalidate();
+    reset();
+  };
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
@@ -73,18 +95,15 @@ function ErrorComponent({
 
         <div className="mt-6 flex justify-center gap-2">
           <button
-            onClick={() => {
-              router.invalidate();
-              reset();
-            }}
-            className="rounded-md bg-primary px-4 py-2 text-sm text-primary-foreground hover:bg-primary/90"
+            onClick={handleRetry}
+            className="rounded-md bg-primary px-4 py-2 text-sm text-primary-foreground transition-colors hover:bg-primary/90"
           >
             Try again
           </button>
 
           <a
             href="/"
-            className="rounded-md border px-4 py-2 text-sm hover:bg-accent"
+            className="rounded-md border px-4 py-2 text-sm transition-colors hover:bg-accent"
           >
             Go home
           </a>
@@ -94,12 +113,18 @@ function ErrorComponent({
   );
 }
 
+/* -------------------------------------------------------------------------- */
+/*                              ROOT ROUTE                                    */
+/* -------------------------------------------------------------------------- */
+
 export const Route = createRootRouteWithContext<{
   queryClient: QueryClient;
 }>()({
   head: () => ({
     meta: [
-      { charSet: "utf-8" },
+      {
+        charSet: "utf-8",
+      },
       {
         name: "viewport",
         content: "width=device-width, initial-scale=1",
@@ -109,22 +134,41 @@ export const Route = createRootRouteWithContext<{
       },
     ],
 
-    links: [{ rel: "stylesheet", href: appCss }],
+    links: [
+      {
+        rel: "stylesheet",
+        href: appCss,
+      },
+    ],
   }),
 
   shellComponent: RootShell,
+
   component: RootComponent,
+
   notFoundComponent: NotFoundComponent,
+
   errorComponent: ErrorComponent,
 });
 
-function RootShell({ children }: { children: ReactNode }) {
+/* -------------------------------------------------------------------------- */
+/*                              ROOT SHELL                                    */
+/* -------------------------------------------------------------------------- */
+
+function RootShell({
+  children,
+}: {
+  children: ReactNode;
+}) {
   return (
     <html lang="fr">
       <head>
         <HeadContent />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.googleapis.com"
+        />
 
         <link
           rel="preconnect"
@@ -140,25 +184,34 @@ function RootShell({ children }: { children: ReactNode }) {
 
       <body>
         {children}
+
         <Scripts />
       </body>
     </html>
   );
 }
 
+/* -------------------------------------------------------------------------- */
+/*                            ROOT COMPONENT                                 */
+/* -------------------------------------------------------------------------- */
+
 function RootComponent() {
+  const { i18n } = useTranslation();
+
   const { queryClient } = Route.useRouteContext();
 
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    const lang = (i18n.language || "fr").split("-")[0];
+    const language = (i18n.language || "fr").split("-")[0];
 
-    document.documentElement.lang = lang;
-    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    document.documentElement.lang = language;
+
+    document.documentElement.dir =
+      language === "ar" ? "rtl" : "ltr";
 
     setIsReady(true);
-  }, []);
+  }, [i18n.language]);
 
   if (!isReady) {
     return null;

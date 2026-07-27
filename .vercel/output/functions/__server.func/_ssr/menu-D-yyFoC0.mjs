@@ -1,8 +1,7 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { u as useMenu } from "./useMenu-CkRVOVtN.mjs";
-import { c as cn } from "./router-CG8em7rf.mjs";
+import { c as cn } from "./router-DMU1exWl.mjs";
 import { B as BGZ } from "./BGZ-CG54wZoT.mjs";
-import "../_libs/i18next.mjs";
 import { u as useTranslation } from "../_libs/react-i18next.mjs";
 import { m as motion, A as AnimatePresence } from "../_libs/framer-motion.mjs";
 import { j as ChevronRight, k as ChevronLeft, l as Coffee, m as IceCreamCone, n as Fish, o as Croissant, p as Flame, W as Wheat, h as ChefHat, q as Search, i as Star, L as Leaf } from "../_libs/lucide-react.mjs";

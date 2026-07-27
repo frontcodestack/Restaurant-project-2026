@@ -6,9 +6,13 @@ import fr from "./locales/fr/translation.json";
 import ar from "./locales/ar/translation.json";
 
 const STORAGE_KEY = "i18nextLng";
+
 const SUPPORTED_LANGUAGES = ["en", "fr", "ar"] as const;
 
-const getInitialLanguage = (): string => {
+type SupportedLanguage =
+  (typeof SUPPORTED_LANGUAGES)[number];
+
+const getInitialLanguage = (): SupportedLanguage => {
   if (typeof window === "undefined") {
     return "fr";
   }
@@ -21,14 +25,17 @@ const getInitialLanguage = (): string => {
 
       if (
         SUPPORTED_LANGUAGES.includes(
-          language as (typeof SUPPORTED_LANGUAGES)[number],
+          language as SupportedLanguage,
         )
       ) {
-        return language;
+        return language as SupportedLanguage;
       }
     }
   } catch (error) {
-    console.warn("Unable to access localStorage.", error);
+    console.warn(
+      "Unable to access localStorage.",
+      error,
+    );
   }
 
   return "fr";
@@ -74,7 +81,10 @@ i18n.on("languageChanged", (language) => {
   try {
     localStorage.setItem(STORAGE_KEY, language);
   } catch (error) {
-    console.warn("Unable to save language.", error);
+    console.warn(
+      "Unable to save language.",
+      error,
+    );
   }
 });
 

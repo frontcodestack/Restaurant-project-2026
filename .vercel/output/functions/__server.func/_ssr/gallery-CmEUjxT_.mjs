@@ -1,8 +1,7 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { u as useGallery } from "./useGallery-Cw85L-xC.mjs";
-import { c as cn } from "./router-CG8em7rf.mjs";
+import { c as cn } from "./router-DMU1exWl.mjs";
 import { B as BGZ } from "./BGZ-CG54wZoT.mjs";
-import "../_libs/i18next.mjs";
 import { u as useTranslation } from "../_libs/react-i18next.mjs";
 import { m as motion, A as AnimatePresence } from "../_libs/framer-motion.mjs";
 import { r as Camera, B as Building2, s as Award, j as ChevronRight, k as ChevronLeft, I as Instagram, X } from "../_libs/lucide-react.mjs";
