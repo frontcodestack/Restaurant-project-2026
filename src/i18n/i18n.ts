@@ -9,37 +9,52 @@ const STORAGE_KEY = "i18nextLng";
 const SUPPORTED_LANGUAGES = ["en", "fr", "ar"] as const;
 
 const getInitialLanguage = (): string => {
-  if (typeof window === "undefined") return "fr";
+  if (typeof window === "undefined") {
+    return "fr";
+  }
 
   try {
-    const saved = localStorage.getItem(STORAGE_KEY);
+    const savedLanguage = localStorage.getItem(STORAGE_KEY);
 
-    if (saved) {
-      const lang = saved.split("-")[0];
+    if (savedLanguage) {
+      const language = savedLanguage.split("-")[0];
 
-      if (SUPPORTED_LANGUAGES.includes(lang as any)) {
-        return lang;
+      if (
+        SUPPORTED_LANGUAGES.includes(
+          language as (typeof SUPPORTED_LANGUAGES)[number],
+        )
+      ) {
+        return language;
       }
     }
-  } catch (err) {
-    console.warn("Unable to access localStorage.", err);
+  } catch (error) {
+    console.warn("Unable to access localStorage.", error);
   }
 
   return "fr";
 };
 
-const initPromise = i18n
+export const initPromise = i18n
   .use(initReactI18next)
   .init({
     resources: {
-      en: { translation: en },
-      fr: { translation: fr },
-      ar: { translation: ar },
+      en: {
+        translation: en,
+      },
+      fr: {
+        translation: fr,
+      },
+      ar: {
+        translation: ar,
+      },
     },
 
     lng: getInitialLanguage(),
+
     fallbackLng: "en",
+
     supportedLngs: SUPPORTED_LANGUAGES,
+
     load: "languageOnly",
 
     interpolation: {
@@ -51,16 +66,16 @@ const initPromise = i18n
     },
   });
 
-// Save language whenever it changes
-i18n.on("languageChanged", (lng) => {
-  if (typeof window === "undefined") return;
+i18n.on("languageChanged", (language) => {
+  if (typeof window === "undefined") {
+    return;
+  }
 
   try {
-    localStorage.setItem(STORAGE_KEY, lng);
-  } catch (err) {
-    console.warn("Unable to save language.", err);
+    localStorage.setItem(STORAGE_KEY, language);
+  } catch (error) {
+    console.warn("Unable to save language.", error);
   }
 });
 
-export { initPromise };
 export default i18n;
