@@ -1,0 +1,1 @@
+const s="/assets/dish-tagine-B9FtxR61.jpg",a="/assets/dish-couscous-Cs9P_q2v.jpg",t="/assets/dish-pastilla-BmLtGZ-w.jpg",o="/assets/dish-grill-D7bfDR6d.jpg",i="/assets/dish-zaalouk-DjIr6Ayo.jpg",c="/assets/dish-tea-D1YaW8CA.jpg";export{c as a,a as c,o as g,t as p,s as t,i as z};

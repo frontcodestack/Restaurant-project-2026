@@ -11,7 +11,7 @@ import {
   Users,
   CheckCircle2,
 } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import heroImg from "@/assets/hero-riad.jpg";
 import BGZ from "@/assets/BGZ.svg";
@@ -19,9 +19,8 @@ import chefImg from "@/assets/chef.jpg";
 import courtyardImg from "@/assets/gallery-courtyard.jpg";
 import lanternsImg from "@/assets/gallery-lanterns.jpg";
 import spicesImg from "@/assets/gallery-spices.jpg";
-import { useMenu } from "@/hooks/useMenu";
+import { MENU } from "@/lib/menu-data";
 import axios from "axios";
-import type { MenuItem } from "@/types/menu";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -137,6 +136,17 @@ const cardHoverVariants = {
 
 const TIMES = ["19:00", "19:30", "20:00", "20:30", "21:00", "21:30"];
 
+// Local type to ensure compatibility with the rich UI expectations
+type MenuDataItem = {
+  id: string;
+  name: string;
+  name_fr?: string;
+  name_ar?: string;
+  price: number | string;
+  popular?: boolean;
+  image: string;
+};
+
 function Counter({
   to,
   suffix = "",
@@ -215,20 +225,30 @@ function SectionLabel({
 
 function Index() {
   const { t, i18n } = useTranslation();
-  const { data: menu = [] } = useMenu();
   
-  const getName = (dish: MenuItem) => {
+  // Replaced Strapi useMenu hook with static MENU data
+  const menuData: MenuDataItem[] = useMemo(() => MENU.map((item: any, index: number) => ({
+    id: item.id ?? String(index),
+    name: item.name ?? "",
+    name_fr: item.name_fr ?? item.name,
+    name_ar: item.name_ar ?? item.name,
+    price: item.price ?? 0,
+    popular: item.popular ?? false,
+    image: item.image ?? item.src ?? "",
+  })), []);
+  
+  const getName = (dish: MenuDataItem) => {
     switch (i18n.language) {
       case "fr":
-        return dish.name_fr || dish.name_en;
+        return dish.name_fr || dish.name;
       case "ar":
-        return dish.name_ar || dish.name_en;
+        return dish.name_ar || dish.name;
       default:
-        return dish.name_en;
+        return dish.name;
     }
   };
 
-  const featured = menu.filter((m) => m.popular).slice(0, 3);
+  const featured = menuData.filter((m) => m.popular).slice(0, 3);
 
   // Booking form state
   const [sent, setSent] = useState(false);
