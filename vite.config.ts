@@ -13,6 +13,6 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
      plugins: [react()],
-  base: "/Restaurant-project-2026/",
+  base: "/restaurant-2027/",
   },
 });
