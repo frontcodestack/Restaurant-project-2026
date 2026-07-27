@@ -4,7 +4,7 @@ import { c as courtyardImg, s as spicesImg, a as chefImg } from "./gallery-spice
 import { B as BGZ } from "./BGZ-CG54wZoT.mjs";
 import { u as useGallery } from "./useGallery-Cw85L-xC.mjs";
 import { u as useTranslation } from "../_libs/react-i18next.mjs";
-import { e as Clock, i as Star, U as Users, t as UtensilsCrossed, s as Award, G as Gem, L as Leaf, f as Sparkles, H as Heart, u as Hand, l as Coffee, v as Music, w as Lamp, x as Palette } from "../_libs/lucide-react.mjs";
+import { d as Clock, h as Star, U as Users, s as UtensilsCrossed, r as Award, G as Gem, L as Leaf, e as Sparkles, H as Heart, t as Hand, k as Coffee, u as Music, v as Lamp, w as Palette } from "../_libs/lucide-react.mjs";
 import { m as motion } from "../_libs/framer-motion.mjs";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";
@@ -22,7 +22,6 @@ import "../_libs/isbot.mjs";
 import "../_libs/tanstack__react-query.mjs";
 import "../_libs/tanstack__query-core.mjs";
 import "./strapi-DoZBEunp.mjs";
-import "../_libs/i18next.mjs";
 import "../_libs/use-sync-external-store.mjs";
 import "../_libs/motion-dom.mjs";
 import "../_libs/motion-utils.mjs";
