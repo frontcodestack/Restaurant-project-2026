@@ -1,0 +1,601 @@
+{
+  "nav": {
+    "home": "Home",
+    "menu": "Menu",
+    "about": "About",
+    "gallery": "Gallery",
+    "reservations": "Reservations",
+    "contact": "Contact",
+    "reserve": "Reserve",
+    "reserve_table": "Reserve a Table",
+     "common": {
+    "language": "Language",
+    "theme": "Theme"
+  }
+  },
+  "home": {
+    "hero": {
+      "image_alt": "Dar Medina restaurant interior",
+      "title_line1": "A Journey Through",
+      "title_line2": "Moroccan Soul",
+      "description": "Slow-cooked tagines, hand-rolled couscous and warm Moroccan hospitality inside a century-old riad.",
+      "cta_primary": "Reserve Your Table",
+      "cta_secondary": "View Our Menu",
+      "open_hours": "Open Daily 12PM – 11PM",
+      "location": "Marrakech Medina, Morocco",
+      "phone": "+212 524 389 214"
+    },
+    "story": {
+      "label": "Our Story",
+      "title_line1": "Born from the Heart",
+      "title_line2": "of the Medina"
+    },
+    "chef": {
+      "image_alt": "Chef preparing traditional Moroccan cuisine",
+      "years_label": "Years of Excellence",
+      "description": "For over two decades, we've been serving authentic Moroccan dishes passed down through generations, using the finest local ingredients and traditional cooking methods.",
+      "story_link": "Read Our Full Story"
+    },
+    "stats": {
+      "dishes": "Dishes",
+      "rating": "Guest Rating",
+      "guests": "Happy Guests"
+    },
+    "experience": {
+      "label": "The Experience",
+      "title_line1": "Step Into Our",
+      "title_line2": "World of Elegance"
+    },
+    "gallery": {
+      "images": {
+        "courtyard": "Traditional Moroccan courtyard",
+        "lanterns": "Decorative Moroccan lanterns",
+        "spices": "Fresh Moroccan spices"
+      },
+      "captions": {
+        "rooftop": "Rooftop Sunset",
+        "live_music": "Live Music",
+        "live_music_alt": "Musicians performing traditional music",
+        "signature_dishes": "Signature Dishes",
+        "signature_dishes_alt": "Featured signature dishes"
+      },
+      "see_gallery": "View Full Gallery"
+    },
+    "featured": {
+      "label": "Culinary Masterpieces",
+      "title_line1": "Featured",
+      "title_line2": "Signature Dishes",
+      "chefs_choice": "Chef's Choice",
+      "price_prefix": "",
+      "price_suffix": "DH",
+      "view_menu": "View Full Menu"
+    },
+    "testimonials": {
+      "label": "Guest Experiences",
+      "title_line1": "Voices of Our",
+      "title_line2": "Beloved Guests",
+      "items": {
+        "1": {
+          "quote": "An unforgettable evening! The tagine was exquisite and the ambiance transported us straight to Morocco."
+        },
+        "2": {
+          "quote": "The best Moroccan food we've had outside of Morocco. Warm service and beautiful setting."
+        },
+        "3": {
+          "quote": "A culinary journey through Morocco. Every dish told a story. Highly recommend!"
+        }
+      }
+    },
+    "reservations": {
+      "label": "Reservations",
+      "title_line1": "Reserve Your",
+      "title_line2": "Moroccan Evening",
+      "private_dining_title": "Private Dining",
+      "private_dining_desc": "Exclusive rooms available",
+      "live_music_title": "Live Gnawa Music",
+      "live_music_desc": "Fri & Sat evenings"
+    },
+    "cta": {
+      "description": "Join us for an unforgettable evening of authentic Moroccan cuisine, live music, and warm hospitality in the heart of the Medina.",
+      "image_alt": "Restaurant interior"
+    },
+    "booking": {
+      "form_title": "Book a Table",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "email": "Email",
+      "date": "Date",
+      "time": "Time",
+      "guests": "Guests",
+      "guest_options": {
+        "1": "1 Guest",
+        "2": "2 Guests",
+        "3": "3 Guests",
+        "4": "4 Guests",
+        "5": "5 Guests",
+        "6_plus": "6+ Guests"
+      },
+      "special_requests": "Special Requests",
+      "special_requests_placeholder": "Dietary requirements, special occasions...",
+      "confirm_button": "Confirm Reservation"
+    },
+    "footer": {
+      "awards_label": "Awards & Recognition"
+    }
+  },
+    "menu": {
+    "hero": {
+      "badge": "Authentic Moroccan Cuisine",
+      "title_line1": "Our Culinary",
+      "title_line2": "Journey",
+      "description": "Discover our seasonal Moroccan menu: tagines, couscous, grills, pastilla, and traditional mint tea — slow-cooked and souk-fresh."
+    },
+    "filter": {
+      "all": "All"
+    },
+    "categories": {
+      "starters": "Starters",
+      "tagines": "Tagines",
+      "couscous": "Couscous",
+      "grills": "Grills",
+      "pastilla": "Pastilla",
+      "seafood": "Seafood",
+      "desserts": "Desserts",
+      "drinks": "Drinks"
+    },
+    "subtitle": {
+      "cold_warm": "Cold & Warm",
+      "starters": "Starters"
+    },
+    "search": {
+      "placeholder": "Search dishes..."
+    },
+    "currency": "MAD",
+    "item": {
+      "popular": "Popular",
+      "spicy": "Spicy",
+      "vegetarian": "Vegetarian"
+    },
+    "empty": "No dishes found matching \"{{query}}\""
+  },
+   "about": {
+    "hero": {
+      "badge": "Our Heritage",
+      "title_line1": "Our Story,",
+      "title_line2": "Our Heritage",
+      "description": "A century-old riad, four generations of Marrakchi recipes and a team devoted to the slow rituals of Moroccan hospitality."
+    },
+    "stats": {
+      "years": "Years of Excellence",
+      "michelin": "Michelin Stars",
+      "guests": "Happy Guests",
+      "dishes": "Signature Dishes"
+    },
+    "story": {
+      "badge": "Since 2009",
+      "title_line1": "A Riad Steeped in",
+      "title_line2": "Centuries of History",
+      "images": {
+        "riad_alt": "Riad Interior",
+        "chef_alt": "Chef at work"
+      },
+      "p1": "Nestled in the heart of Marrakech's ancient medina, Dar Medina stands as a testament to centuries of Moroccan culinary tradition. Our riad, dating back over 100 years, has been lovingly restored to preserve its authentic character while offering modern comforts.",
+      "p2": "For four generations, the recipes that grace our tables have been passed down through family lines, each dish carrying the wisdom and love of those who came before. We source our ingredients from local souks, ensuring freshness and supporting our community.",
+      "p3": "Every meal at Dar Medina is more than just dining—it's an invitation to experience the warmth of Moroccan hospitality, the artistry of traditional cooking, and the timeless beauty of our heritage.",
+      "quote": "Cooking is not just about feeding the body, it's about nourishing the soul and preserving our cultural memory.",
+      "quote_author": "Chef Hassan El Mansouri"
+    },
+    "philosophy": {
+      "badge": "Our Approach",
+      "title_line1": "Our Culinary",
+      "title_line2": "Philosophy",
+      "description": "We believe in honoring tradition while embracing innovation, creating dishes that tell the story of Morocco's rich culinary heritage."
+    },
+    "principles": {
+      "seasonal": {
+        "title": "Seasonal & Fresh",
+        "desc": "We source ingredients daily from local markets, ensuring peak freshness and supporting sustainable agriculture."
+      },
+      "technique": {
+        "title": "Slow Cooking",
+        "desc": "Traditional methods passed down through generations, allowing flavors to develop naturally over time."
+      },
+      "spice": {
+        "title": "Artisan Spices",
+        "desc": "Hand-selected spice blends from Marrakech's famous souks, creating complex layers of flavor."
+      },
+      "hospitality": {
+        "title": "Heartfelt Service",
+        "desc": "Every guest is treated as family, with warm Moroccan hospitality that makes you feel at home."
+      }
+    },
+    "chef": {
+      "badge": "Master Chef",
+      "title_line1": "Chef Hassan",
+      "title_line2": "El Mansouri",
+      "name_arabic": "الشيف حسن المنصوري",
+      "image_alt": "Chef Hassan El Mansouri",
+      "title": "Executive Chef",
+      "since": "Since 2009",
+      "p1": "Born into a family of Marrakchi cooks, Chef Hassan learned the art of Moroccan cuisine from his grandmother's kitchen. With over 25 years of experience, he has mastered the delicate balance of spices and techniques that define authentic Moroccan cooking.",
+      "p2": "His philosophy centers on preserving traditional recipes while introducing subtle innovations that elevate the dining experience. Under his leadership, Dar Medina has earned recognition as one of Morocco's finest restaurants.",
+      "badges": {
+        "years": "Decades Experience",
+        "michelin": "Michelin Stars",
+        "top50": "World's Top 50"
+      }
+    },
+    "team": {
+      "badge": "Our People",
+      "title_line1": "The Dar Medina",
+      "title_line2": "Family",
+      "roles": {
+        "executive_chef": "Executive Chef",
+        "pastry": "Pastry Chef",
+        "sommelier": "Tea Sommelier",
+        "host": "Head of Hospitality"
+      }
+    },
+    "awards": {
+      "badge": "Recognition",
+      "title_line1": "Awards &",
+      "title_line2": "Accolades",
+      "items": {
+        "michelin": {
+          "title": "3 Michelin Stars",
+          "desc": "Three consecutive years of culinary excellence"
+        },
+        "worlds_best": {
+          "title": "World's Best 50",
+          "desc": "Ranked #27 in World's Best Restaurants"
+        },
+        "best_morocco": {
+          "title": "Best of Morocco",
+          "desc": "Traditional Cuisine Category Winner"
+        },
+        "green_star": {
+          "title": "Green Star",
+          "desc": "Sustainable gastronomy recognition"
+        }
+      }
+    },
+    "design": {
+      "badge": "Architecture",
+      "title_line1": "Moroccan Design",
+      "title_line2": "as Living Art",
+      "description": "Every corner of Dar Medina tells a story through traditional Moroccan craftsmanship and architectural beauty.",
+      "elements": {
+        "zellij": {
+          "title": "Zellij Tilework",
+          "desc": "Intricate geometric patterns crafted by master artisans"
+        },
+        "lighting": {
+          "title": "Handcrafted Lighting",
+          "desc": "Traditional brass lanterns"
+        },
+        "ceilings": {
+          "title": "Carved Ceilings",
+          "desc": "Cedar wood craftsmanship"
+        },
+        "arches": {
+          "title": "Horseshoe Arches",
+          "desc": "Classic Moroccan architecture"
+        },
+        "plasterwork": {
+          "title": "Arabesque Plasterwork",
+          "desc": "Delicate ornamental designs"
+        },
+        "ceramics": {
+          "title": "Artisan Ceramics",
+          "desc": "Hand-painted tableware from Fes artisans"
+        }
+      }
+    },
+    "hospitality": {
+      "badge": "Tradition",
+      "title_line1": "The Art of",
+      "title_line2": "Moroccan Hospitality",
+      "description": "Experience the warmth and generosity that has defined Moroccan culture for centuries.",
+      "welcome": {
+        "title": "Warm Welcome",
+        "desc": "Every guest is greeted with traditional Moroccan hospitality and mint tea upon arrival."
+      },
+      "tea": {
+        "title": "Mint Tea Ceremony",
+        "desc": "The art of preparing and serving Moroccan mint tea, a symbol of friendship and welcome."
+      },
+      "service": {
+        "title": "Attentive Service",
+        "desc": "Our staff anticipates your needs with discretion and genuine care for your comfort."
+      },
+      "music": {
+        "title": "Live Gnawa Music",
+        "desc": "Traditional Moroccan music performances every Friday and Saturday evening."
+      },
+      "ambiance": {
+        "title": "Magical Ambiance",
+        "desc": "Candlelit courtyards and intimate dining spaces create an unforgettable atmosphere."
+      },
+      "private": {
+        "title": "Private Dining",
+        "desc": "Exclusive rooms available for special occasions and intimate gatherings."
+      }
+    },
+    "cta": {
+      "badge": "Join Us",
+      "title_line1": "Come Experience",
+      "title_line2": "Dar Medina",
+      "description": "Reserve your table and embark on a culinary journey through the heart of Morocco.",
+      "reserve": "Reserve Your Table",
+      "menu": "View Our Menu"
+    }
+  },
+     "gallery": {
+    "hero": {
+      "badge": "Visual Journey",
+      "title_line1": "Through Our",
+      "title_line2": "Lens",
+      "description": "Step inside Dar Medina — our riad interiors, candle-lit courtyard, spice-souk colours and signature dishes captured in every frame.",
+      "stats": {
+        "photos": "120+ Photographs",
+        "collections": "5 Collections",
+        "awards": "Award-Winning Spaces"
+      },
+      "explore": "Explore Gallery"
+    },
+    "featured": {
+      "badge": "Featured",
+      "main_alt": "Featured riad interior",
+      "cuisine_alt": "Moroccan cuisine",
+      "zellij_alt": "Zellij tilework details"
+    },
+    "filter": {
+      "all": "All",
+      "showing": "Showing {{visible}} of {{total}} photos"
+    },
+    "categories": {
+      "cuisine": "Cuisine",
+      "interiors": "Interiors",
+      "zellij_details": "Zellij & Details",
+      "atmosphere": "Atmosphere",
+      "events": "Events"
+    },
+    "load_more": "Load More Photos",
+    "load_more.count": "{{visible}} OF {{total}}",
+    
+    "instagram": {
+      "handle": "@DARMEDINA_MA",
+      "title_line1": "Follow Our",
+      "title_line2": "Visual Story",
+      "follow": "Follow on Instagram",
+      "photo_alt": "Instagram photo"
+    }
+  },
+  "reservations": {
+    "hero": {
+      "badge": "Reservations",
+      "title_line1": "Reserve Your",
+      "title_line2": "Table",
+      "description": "Secure your place for an unforgettable Moroccan dining experience in the heart of Marrakech's ancient medina."
+    },
+    "info": {
+      "hours": "Opening Hours",
+      "hours_desc": "Lunch 12:00–15:00, Dinner 19:00–23:30",
+      "large_parties": "Large Parties",
+      "large_parties_desc": "Private courtyard available for groups of 10+",
+      "dress_code": "Dress Code",
+      "dress_code_desc": "Smart casual attire recommended",
+       "reservation_policy": "Reservation Policy",
+       "reservation_policy_desc": "Free cancellation up to 24 hours before."
+    },
+    "form": {
+      "badge": "Booking",
+      "title_line1": "Book Your",
+      "title_line2": "Evening",
+      "guest_info": "Guest Information",
+      "first_name": "First Name",
+      "first_name_placeholder": "Ahmed",
+      "last_name": "Last Name",
+      "last_name_placeholder": "Benali",
+      "email": "Email Address",
+      "email_placeholder": "ahmed@example.com",
+      "phone": "Phone Number",
+      "phone_placeholder": "+212 600 000 000",
+      "party_size": "Party Size",
+      "party_size_desc": "How many guests will be dining?",
+      "guest_one": "Guest",
+      "guest_other": "Guests",
+      "large_party_note": "For parties of 9+, please call to arrange special accommodations",
+      "date_time": "Date & Time",
+      "date": "Date",
+      "time": "Time",
+      "notes": "Special Requests",
+      "notes_placeholder": "Dietary requirements, celebrations, seating preferences...",
+      "error": "Please fill in all required fields correctly",
+      "submit": "Confirm Reservation"
+    },
+    "success": {
+      "title": "Thank You, {{name}}!",
+      "description": "Your reservation for {{guests}} {{guests, plural, one {guest} other {guests}}} on {{date}} at {{time}} has been confirmed. A confirmation email has been sent to {{email}}.",
+      "button": "Make Another Reservation"
+    },
+    "summary": {
+      "title": "Reservation Summary",
+      "date": "Date",
+      "time": "Time",
+      "guests": "Guests",
+      "meal": "Meal Type",
+      "lunch": "Lunch Service",
+      "dinner": "Dinner Service",
+      "cancellation_title": "Cancellation Policy",
+      "cancellation_desc": "Free cancellation up to 24 hours before your reservation. Late cancellations may incur a fee.",
+      "what_to_expect": "What to Expect",
+      "expect_1": "Confirmation email within 1 hour",
+      "expect_2": "Welcome drink upon arrival",
+      "expect_3": "Personalized service throughout your evening"
+    },
+    "why": {
+      "badge": "Why Choose Us",
+      "title_line1": "Why Reserve at",
+      "title_line2": "Dar Medina",
+      "michelin": {
+        "title": "Michelin Excellence",
+        "desc": "Three Michelin stars recognizing our commitment to culinary excellence"
+      },
+      "hospitality": {
+        "title": "Warm Hospitality",
+        "desc": "Experience authentic Moroccan warmth and personalized service"
+      },
+      "riad": {
+        "title": "Historic Riad",
+        "desc": "Dine in a century-old riad with stunning traditional architecture"
+      },
+      "cuisine": {
+        "title": "Authentic Cuisine",
+        "desc": "Traditional recipes passed down through four generations"
+      }
+    },
+    "testimonials": {
+      "badge": "Guest Reviews",
+      "title": "What Our Guests Say",
+      "items": {
+        "1": {
+          "quote": "The reservation process was seamless, and when we arrived, everything was perfect — the table, the flowers, the welcome. An evening we will never forget.",
+          "author": "Sophie Laurent",
+          "location": "Paris, France"
+        },
+        "2": {
+          "quote": "We celebrated our anniversary here and the team went above and beyond. The rooftop terrace at night with the city lights below — absolutely magical.",
+          "author": "James Whitfield",
+          "location": "London, UK"
+        },
+        "3": {
+          "quote": "The special surprise section was incredibly thoughtful. They remembered every detail — the vegetarian preferences, the birthday surprise, all so effortless.",
+          "author": "Aisha Al-Rashid",
+          "location": "Dubai, UAE"
+        }
+      }
+    },
+    "help": {
+      "badge": "Need Assistance?",
+      "title_line1": "Need Help with Your",
+      "title_line2": "Reservation?",
+      "description": "Our team is here to help you plan the perfect dining experience. Contact us for special arrangements or questions.",
+      "call": "Call Us Now",
+      "email": "Email Us"
+    }
+  },
+ "contact": {
+  "hero": {
+    "badge": "Get In Touch",
+    "title_line1": "Find Us in",
+    "title_line2": "Marrakech",
+    "description": "Visit Dar Medina in the heart of the ancient medina. We're here to answer your questions and welcome you.",
+    "location": "Medina, Marrakech",
+    "hours": "Open Daily 12PM – 11PM"
+  },
+  "cards": {
+    "address": {
+      "title": "Our Address",
+      "text": "123 Derb Sidi Ahmed, Medina, Marrakech 40000, Morocco"
+    },
+    "phone": {
+      "title": "Call Us",
+      "text": "+212 524 389 214",
+      "link": "Call Now"
+    },
+    "email": {
+      "title": "Email Us",
+      "text": "hello@darmedina.ma",
+      "link": "Send Email"
+    },
+    "hours": {
+      "title": "Opening Hours",
+      "lunch": "Lunch: 12:00 – 15:00",
+      "dinner": "Dinner: 19:00 – 23:30",
+      "open_daily": "Open Daily"
+    }
+  },
+  "map": {
+    "badge": "Location",
+    "title": "Dar Medina Location Map",
+    "google_maps": "Google Maps",
+    "apple_maps": "Apple Maps",
+    "copy_address": "Copy Address"
+  },
+  "form_section": {
+    "badge": "Contact Form",
+    "title_line1": "Send Us",
+    "title_line2": "A Message",
+    "visit_us": "Visit Us",
+    "follow_us": "Follow Us"
+  },
+  "form": {
+    "tabs": {
+      "general": "General Inquiry",
+      "private": "Private Dining"
+    },
+    "success_title": "Message Sent!",
+    "success_desc": "Thank you for reaching out. We'll get back to you within 24 hours.",
+    "first_name": "First Name",
+    "first_name_placeholder": "Ahmed",
+    "last_name": "Last Name",
+    "last_name_placeholder": "Benali",
+    "email": "Email Address",
+    "email_placeholder": "ahmed@example.com",
+    "phone": "Phone Number",
+    "phone_placeholder": "+212 600 000 000",
+    "subject": "Subject",
+    "select_subject": "Select a subject",
+    "subjects": {
+      "reservation": "Reservation Inquiry",
+      "private": "Private Dining Event",
+      "general": "General Question",
+      "feedback": "Feedback"
+    },
+    "message": "Your Message",
+    "message_placeholder": "Tell us how we can help you...",
+    "privacy": "I agree to the privacy policy and consent to being contacted regarding my inquiry.",
+    "submit": "Send Message"
+  },
+  "cta": {
+    "badge": "Ready to Visit?",
+    "title_line1": "Ready to",
+    "title_line2": "Experience Dar Medina?",
+    "description": "Book your table today and discover the authentic flavors and warm hospitality of Moroccan cuisine.",
+    "reserve": "Reserve Your Table",
+    "inquiry": "Send Inquiry"
+  }
+},
+    "footer": {
+    "description": "Authentic Moroccan cuisine in the heart of Marrakech's ancient medina. Experience centuries of culinary tradition in a stunning riad setting.",
+    "navigation": {
+      "title": "Navigation"
+    },
+    "hours": {
+      "title": "Opening Hours",
+      "mon_thu": "Monday — Thursday",
+      "mon_thu_time": "12PM — 12AM",
+      "fri_sat": "Friday — Saturday",
+      "fri_sat_time": "12PM — 1AM",
+      "sunday": "Sunday",
+      "sunday_time": "1PM — 11PM",
+      "open_now": "Open Now"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "address": "123 Derb Sidi Ahmed, Medina, Marrakech 40000, Morocco"
+    },
+    "newsletter": {
+      "title": "Stay Updated",
+      "description": "Subscribe to receive exclusive offers, seasonal menus, and special event invitations.",
+      "placeholder": "Enter your email",
+      "button": "Subscribe",
+      "success": "Thank you for subscribing! Check your email for confirmation."
+    },
+    "copyright": "© {{year}} Dar Medina. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "crafted": "Crafted with ♥ in Marrakech"
+  }
+}
