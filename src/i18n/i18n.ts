@@ -28,26 +28,28 @@ const getInitialLanguage = (): string => {
   return "fr";
 };
 
-i18n.use(initReactI18next).init({
-  resources: {
-    en: { translation: en },
-    fr: { translation: fr },
-    ar: { translation: ar },
-  },
+const initPromise = i18n
+  .use(initReactI18next)
+  .init({
+    resources: {
+      en: { translation: en },
+      fr: { translation: fr },
+      ar: { translation: ar },
+    },
 
-  lng: getInitialLanguage(),
-  fallbackLng: "en",
-  supportedLngs: SUPPORTED_LANGUAGES,
-  load: "languageOnly",
+    lng: getInitialLanguage(),
+    fallbackLng: "en",
+    supportedLngs: SUPPORTED_LANGUAGES,
+    load: "languageOnly",
 
-  interpolation: {
-    escapeValue: false,
-  },
+    interpolation: {
+      escapeValue: false,
+    },
 
-  react: {
-    useSuspense: false,
-  },
-});
+    react: {
+      useSuspense: false,
+    },
+  });
 
 // Save language whenever it changes
 i18n.on("languageChanged", (lng) => {
@@ -60,4 +62,5 @@ i18n.on("languageChanged", (lng) => {
   }
 });
 
+export { initPromise };
 export default i18n;

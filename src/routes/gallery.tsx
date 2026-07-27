@@ -1,3 +1,4 @@
+import "../i18n/i18n";
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { useState, useRef } from "react";

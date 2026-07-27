@@ -543,15 +543,15 @@ function RootShell({ children }) {
   ] });
 }
 function RootComponent() {
-  const { i18n, ready } = useTranslation();
+  const { i18n: i18n2, ready } = useTranslation();
   const { queryClient: queryClient2 } = Route$6.useRouteContext();
   const [isReady, setIsReady] = reactExports.useState(false);
   reactExports.useEffect(() => {
-    const lang = (i18n.language || "en").split("-")[0];
+    const lang = (i18n2.language || "en").split("-")[0];
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
     setIsReady(true);
-  }, [i18n.language]);
+  }, [i18n2.language]);
   if (!isReady) return null;
   return /* @__PURE__ */ jsxRuntimeExports.jsx(QueryClientProvider, { client: queryClient2, children: /* @__PURE__ */ jsxRuntimeExports.jsx(ThemeProvider, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex min-h-screen flex-col", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Navbar, {}),
@@ -582,7 +582,7 @@ const Route$5 = createFileRoute("/reservations")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$5, "component")
 });
-const $$splitComponentImporter$4 = () => import("./menu-C3QgLH1J.mjs");
+const $$splitComponentImporter$4 = () => import("./menu-DoUs6UEd.mjs");
 const Route$4 = createFileRoute("/menu")({
   head: () => ({
     meta: [{
@@ -604,7 +604,7 @@ const Route$4 = createFileRoute("/menu")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$4, "component")
 });
-const $$splitComponentImporter$3 = () => import("./gallery-DGH5p4by.mjs");
+const $$splitComponentImporter$3 = () => import("./gallery-DSDrmPLt.mjs");
 const Route$3 = createFileRoute("/gallery")({
   head: () => ({
     meta: [{
