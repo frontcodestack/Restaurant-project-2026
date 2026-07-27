@@ -7,84 +7,70 @@ import ar from "./locales/ar/translation.json";
 
 const STORAGE_KEY = "i18nextLng";
 
-const SUPPORTED_LANGUAGES = ["en", "fr", "ar"] as const;
+export const SUPPORTED_LANGUAGES = [
+  "en",
+  "fr",
+  "ar",
+] as const;
 
-type SupportedLanguage =
+export type SupportedLanguage =
   (typeof SUPPORTED_LANGUAGES)[number];
 
-const getInitialLanguage = (): SupportedLanguage => {
+function getInitialLanguage(): SupportedLanguage {
   if (typeof window === "undefined") {
     return "fr";
   }
 
   try {
-    const savedLanguage = localStorage.getItem(STORAGE_KEY);
+    const saved = localStorage.getItem(STORAGE_KEY);
 
-    if (savedLanguage) {
-      const language = savedLanguage.split("-")[0];
+    if (saved) {
+      const language = saved.split("-")[0] as SupportedLanguage;
 
-      if (
-        SUPPORTED_LANGUAGES.includes(
-          language as SupportedLanguage,
-        )
-      ) {
-        return language as SupportedLanguage;
+      if (SUPPORTED_LANGUAGES.includes(language)) {
+        return language;
       }
     }
   } catch (error) {
-    console.warn(
-      "Unable to access localStorage.",
-      error,
-    );
+    console.warn("Unable to access localStorage.", error);
   }
 
   return "fr";
-};
+}
 
-export const initPromise = i18n
-  .use(initReactI18next)
-  .init({
-    resources: {
-      en: {
-        translation: en,
-      },
-      fr: {
-        translation: fr,
-      },
-      ar: {
-        translation: ar,
-      },
-    },
+i18n.use(initReactI18next);
 
-    lng: getInitialLanguage(),
+export const initPromise = i18n.init({
+  resources: {
+    en: { translation: en },
+    fr: { translation: fr },
+    ar: { translation: ar },
+  },
 
-    fallbackLng: "en",
+  lng: getInitialLanguage(),
 
-    supportedLngs: SUPPORTED_LANGUAGES,
+  fallbackLng: "en",
 
-    load: "languageOnly",
+  supportedLngs: SUPPORTED_LANGUAGES,
 
-    interpolation: {
-      escapeValue: false,
-    },
+  load: "languageOnly",
 
-    react: {
-      useSuspense: false,
-    },
-  });
+  interpolation: {
+    escapeValue: false,
+  },
+
+  react: {
+    useSuspense: false,
+  },
+});
 
 i18n.on("languageChanged", (language) => {
-  if (typeof window === "undefined") {
-    return;
-  }
+  if (typeof window === "undefined") return;
 
   try {
     localStorage.setItem(STORAGE_KEY, language);
   } catch (error) {
-    console.warn(
-      "Unable to save language.",
-      error,
-    );
+    console.warn("Unable to save language.", error);
   }
 });
 
