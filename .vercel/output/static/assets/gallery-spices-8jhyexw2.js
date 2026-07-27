@@ -1,0 +1,1 @@
+import{c}from"./index-BCJRUOKk.js";const e=c("Music",[["path",{d:"M9 18V5l12-2v13",key:"1jmyc2"}],["circle",{cx:"6",cy:"18",r:"3",key:"fqmcym"}],["circle",{cx:"18",cy:"16",r:"3",key:"1hluhg"}]]),a="/assets/chef-ChxXxKu5.jpg",r="/assets/gallery-courtyard-BnvgraxG.jpg",t="/assets/gallery-spices-DT_VgJaS.jpg";export{e as M,a,r as c,t as s};
