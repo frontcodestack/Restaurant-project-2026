@@ -268,6 +268,9 @@ const Menu = createLucideIcon("Menu", [
   ["line", { x1: "4", x2: "20", y1: "6", y2: "6", key: "1owob3" }],
   ["line", { x1: "4", x2: "20", y1: "18", y2: "18", key: "yk5zj1" }]
 ]);
+const MessageCircle = createLucideIcon("MessageCircle", [
+  ["path", { d: "M7.9 20A9 9 0 1 0 4 16.1L2 22Z", key: "vv11sd" }]
+]);
 const Moon = createLucideIcon("Moon", [
   ["path", { d: "M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z", key: "a7tn18" }]
 ]);
@@ -439,24 +442,25 @@ export {
   Menu as a,
   MapPin as b,
   Mail as c,
-  Clock as d,
-  Sparkles as e,
-  CircleCheck as f,
-  ChefHat as g,
-  Star as h,
-  ChevronRight as i,
-  ChevronLeft as j,
-  Coffee as k,
-  IceCreamCone as l,
-  Fish as m,
-  Croissant as n,
-  Flame as o,
-  Search as p,
-  Camera as q,
-  Award as r,
-  UtensilsCrossed as s,
-  Hand as t,
-  Music as u,
-  Lamp as v,
-  Palette as w
+  MessageCircle as d,
+  Clock as e,
+  Sparkles as f,
+  CircleCheck as g,
+  ChefHat as h,
+  Star as i,
+  ChevronRight as j,
+  ChevronLeft as k,
+  Coffee as l,
+  IceCreamCone as m,
+  Fish as n,
+  Croissant as o,
+  Flame as p,
+  Search as q,
+  Camera as r,
+  Award as s,
+  UtensilsCrossed as t,
+  Hand as u,
+  Music as v,
+  Lamp as w,
+  Palette as x
 };

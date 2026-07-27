@@ -6,9 +6,10 @@ import {
 } from "lucide-react";
 import { useMemo, useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { MENU, CATEGORIES as STATIC_CATEGORIES, type MenuCategory } from "@/lib/menu-data";
+import { useMenu } from "@/hooks/useMenu";
 import { cn } from "@/lib/utils";
 import BGZ from "@/assets/BGZ.svg";
+import type { MenuItem } from "@/types/menu";
 
 export const Route = createFileRoute("/menu")({
   head: () => ({
@@ -86,66 +87,33 @@ const categoryIcons: Record<string, any> = {
   "Drinks": Coffee,
 };
 
-// Local type to ensure compatibility with the rich UI expectations
-type MenuDataItem = {
-  id: string;
-  name: string;
-  name_fr?: string;
-  name_ar?: string;
-  description: string;
-  description_fr?: string;
-  description_ar?: string;
-  price: number | string;
-  category: string;
-  image: string;
-  popular?: boolean;
-  spicy?: boolean;
-  vegetarian?: boolean;
-  rating?: number;
-};
-
 function MenuPage() {
   const { t, i18n } = useTranslation();
   const isRTL = i18n.dir() === 'rtl';
   
-  // Replaced Strapi useMenu hook with static MENU data
-  // Mapped to ensure all expected properties exist for the rich UI
-  const menuData: MenuDataItem[] = useMemo(() => MENU.map((item: any, index: number) => ({
-    id: item.id ?? String(index),
-    name: item.name ?? "",
-    name_fr: item.name_fr ?? item.name,
-    name_ar: item.name_ar ?? item.name,
-    description: item.description ?? "",
-    description_fr: item.description_fr ?? item.description,
-    description_ar: item.description_ar ?? item.description,
-    price: item.price ?? 0,
-    category: item.category ?? "Other",
-    image: item.image ?? item.src ?? "",
-    popular: item.popular ?? false,
-    spicy: item.spicy ?? false,
-    vegetarian: item.vegetarian ?? false,
-    rating: item.rating ?? 4.5,
-  })), []);
-
-  const getName = (dish: MenuDataItem) => {
+  const getName = (dish: MenuItem) => {
     switch (i18n.language) {
-      case "fr": return dish.name_fr || dish.name;
-      case "ar": return dish.name_ar || dish.name;
-      default: return dish.name;
+      case "fr": return dish.name_fr || dish.name_en;
+      case "ar": return dish.name_ar || dish.name_en;
+      default: return dish.name_en;
     }
   };
 
-  const getDescription = (dish: MenuDataItem) => {
+  const getDescription = (dish: MenuItem) => {
     switch (i18n.language) {
-      case "fr": return dish.description_fr || dish.description;
-      case "ar": return dish.description_ar || dish.description;
-      default: return dish.description;
+      case "fr": return dish.description_fr || dish.description_en;
+      case "ar": return dish.description_ar || dish.description_en;
+      default: return dish.description_en;
     }
   };
 
+  const { data: MENU = [] } = useMenu();
   const [cat, setCat] = useState<string | "All">("All");
   
-  const CATEGORIES = ["All", ...STATIC_CATEGORIES];
+  const CATEGORIES = useMemo(
+    () => ["All", ...new Set(MENU.map((item) => item.category))],
+    [MENU]
+  );
   
   const [q, setQ] = useState("");
 
@@ -179,13 +147,13 @@ function MenuPage() {
   };
 
   const items = useMemo(() => {
-    return menuData.filter((m) => (cat === "All" ? true : m.category === cat))
+    return MENU.filter((m) => (cat === "All" ? true : m.category === cat))
      .filter((m) =>
       q.trim()
         ? (getName(m) + " " + getDescription(m)).toLowerCase().includes(q.toLowerCase())
         : true
     );
-  }, [cat, q, menuData]);
+  }, [cat, q, MENU]);
 
   return (
     <>
@@ -320,7 +288,7 @@ function MenuPage() {
               transition={{ delay: 0.5 }}
               className="hidden sm:block text-xs text-white/40 shrink-0 ml-4"
             >
-              {t("gallery.filter.showing", { visible: items.length, total: menuData.length })}
+              {t("gallery.filter.showing", { visible: items.length, total: MENU.length })}
             </motion.span>
           </div>
         </div>
@@ -493,41 +461,41 @@ function MenuPage() {
                         <div className="flex items-center gap-1">
                           {[...Array(5)].map((_, i) => (
                             <motion.div
-                              key={i}
-                              initial={{ opacity: 0, scale: 0 }}
-                              whileInView={{ opacity: 1, scale: 1 }}
-                              viewport={{ once: true }}
-                              transition={{
-                                delay: 0.1 + i * 0.03,
-                                duration: 0.2,
-                                type: "spring",
-                                stiffness: 500,
-                                damping: 15,
-                              }}
-                            >
-                              <Star
-                                className={cn(
-                                  "h-3.5 w-3.5",
-                                  i < Math.floor(dish.rating || 4.5)
-                                    ? "fill-gold text-gold"
-                                    : "text-white/20"
-                                )}
-                              />
-                            </motion.div>
+  key={i}
+  initial={{ opacity: 0, scale: 0 }}
+  whileInView={{ opacity: 1, scale: 1 }}
+  viewport={{ once: true }}
+  transition={{
+    delay: 0.1 + i * 0.03,
+    duration: 0.2,
+    type: "spring",
+    stiffness: 500,
+    damping: 15,
+  }}
+>
+  <Star
+    className={cn(
+      "h-3.5 w-3.5",
+      i < Math.floor(dish.rating || 4.5)
+        ? "fill-gold text-gold"
+        : "text-white/20"
+    )}
+  />
+</motion.div>
                           ))}
-                          <motion.span
-                            initial={{ opacity: 0, x: -4 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{
-                              delay: 0.28 + index * 0.03,
-                              duration: 0.25,
-                              ease: "easeOut",
-                            }}
-                            className="ml-2 text-xs font-medium text-slate-500"
-                          >
-                            ({dish.rating || 24})
-                          </motion.span>
+                    <motion.span
+  initial={{ opacity: 0, x: -4 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true }}
+  transition={{
+    delay: 0.28 + index * 0.03,
+    duration: 0.25,
+    ease: "easeOut",
+  }}
+  className="ml-2 text-xs font-medium text-slate-500"
+>
+  ({dish.rating || 24})
+</motion.span>
                         </div>
                       </div>
                     </div>

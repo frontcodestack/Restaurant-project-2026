@@ -12,7 +12,8 @@ import {
   Instagram,
 } from "lucide-react";
 
-import { GALLERY, type GalleryCategory } from "@/lib/gallery-data";
+import { useGallery } from "@/hooks/useGallery";
+import type { GalleryCategory } from "@/types/gallery";
 import { cn } from "@/lib/utils";
 import BGZ from "@/assets/BGZ.svg";
 
@@ -37,6 +38,7 @@ export const Route = createFileRoute("/gallery")({
 });
 
 // ==================== ANIMATION VARIANTS ====================
+
 
 const containerVariants = {
   hidden: {
@@ -102,15 +104,7 @@ function GalleryPage() {
   const { t, i18n } = useTranslation();
   const isRTL = i18n.dir() === 'rtl';
   
-  // Replaced Strapi useGallery hook with static GALLERY data
-  // Mapped to ensure compatibility with existing JSX properties (id, image, title)
-  const galleryData = GALLERY.map((g: any, index: number) => ({
-    id: g.id ?? String(index),
-    image: g.image ?? g.src ?? "",
-    title: g.title ?? g.alt ?? "",
-    category: g.category as GalleryCategory,
-  }));
-  const isLoading = false;
+  const { data: galleryData = [], isLoading } = useGallery();
 
   const [cat, setCat] = useState<"All" | GalleryCategory>("All");
   const [open, setOpen] = useState<number | null>(null);
@@ -231,7 +225,7 @@ function GalleryPage() {
                     block: "start",
                   })
                 }
-                className="link-menu cursor-pointer mx-auto block rounded-sm border border-white/30 bg-transparent px-6 py-2.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-white/10"
+                className="link-menu  cursor-pointer mx-auto block rounded-sm border border-white/30 bg-transparent px-6 py-2.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-white/10"
               >
                 {t("gallery.hero.explore")}
               </motion.button>
@@ -407,24 +401,25 @@ function GalleryPage() {
                         initial="rest"
                         whileHover="hover"
                         onClick={() => setOpen(i)}
-                        className={cn(
-                          "group relative block w-full overflow-hidden rounded-lg sm:rounded-xl shadow-xl",
+                       className={cn(
+                  "group relative block w-full overflow-hidden rounded-lg sm:rounded-xl shadow-xl",
 
-                          // Hero / Large Square
-                          layoutType === 0 &&
-                            "col-span-1 sm:col-span-2 lg:col-span-2 lg:row-span-2 aspect-4/3 sm:aspect-3/2 lg:aspect-auto",
+                  // Hero / Large Square
+                  layoutType === 0 &&
+                    "col-span-1 sm:col-span-2 lg:col-span-2 lg:row-span-2 aspect-4/3 sm:aspect-3/2 lg:aspect-auto",
 
-                          // Small Square
-                          (layoutType === 1 || layoutType === 2) &&
-                            "col-span-1 aspect-4/3 sm:aspect-square lg:aspect-auto",
-                          // Tall
-                          (layoutType === 3 || layoutType === 4) &&
-                            "col-span-1 aspect-4/3 sm:aspect-square lg:aspect-auto",
-                       
-                          // Wide
-                          layoutType === 5 &&
-                            "col-span-1 sm:col-span-2 lg:col-span-2 aspect-4/3 sm:aspect-3/2 lg:aspect-auto"
-                        )}
+                  // Small Square
+                  (layoutType === 1 || layoutType === 2) &&
+                    "col-span-1 aspect-4/3 sm:aspect-square lg:aspect-auto",
+                  // Tall
+                  (layoutType === 3 || layoutType === 4) &&
+                    "col-span-1 aspect-4/3 sm:aspect-square lg:aspect-auto",
+
+                   
+                  // Wide
+                  layoutType === 5 &&
+                    "col-span-1 sm:col-span-2 lg:col-span-2 aspect-4/3 sm:aspect-3/2 lg:aspect-auto"
+                )}
                       >
                         <motion.img
                           src={g.image}
@@ -444,7 +439,9 @@ function GalleryPage() {
                             viewport={{ once: true }}
                             transition={{ delay: 0.2 + (i * 0.05) }}
                             className="absolute left-3 top-3 sm:left-4 sm:top-4"
-                          />
+                          >
+                       
+                          </motion.div>
                         )}
 
                         <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 lg:p-5">
@@ -505,7 +502,7 @@ function GalleryPage() {
                 </p>
                 <h2 className="font-display text-2xl sm:text-3xl text-white">
                   {t("gallery.instagram.title_line1")}
-                  <br />
+                  <br  />
                   <em className="not-italic text-gold">{t("gallery.instagram.title_line2")}</em>
                 </h2>
               </div>
@@ -513,7 +510,7 @@ function GalleryPage() {
                 href="https://instagram.com/darmedina_ma"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 sm:gap-2 rounded-sm bg-gold px-5 sm:px-6 py-2.5 sm:py-3 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-gold-foreground transition-all hover:bg-gold/90 hover:shadow-lg hover:shadow-gold/20 shrink-0"
+               className="inline-flex items-center gap-1.5 sm:gap-2 rounded-sm bg-gold px-5 sm:px-6 py-2.5 sm:py-3 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-semibold text-gold-foreground transition-all hover:bg-gold/90 hover:shadow-lg hover:shadow-gold/20 shrink-0"
               >
                 <Instagram className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                 {t("gallery.instagram.follow")}

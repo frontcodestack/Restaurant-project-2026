@@ -3,7 +3,7 @@ import { B as BGZ } from "./BGZ-CG54wZoT.mjs";
 import { a as axios } from "../_libs/axios.mjs";
 import { u as useTranslation } from "../_libs/react-i18next.mjs";
 import { m as motion, A as AnimatePresence } from "../_libs/framer-motion.mjs";
-import { b as MapPin, d as Clock, P as Phone, A as ArrowRight, c as Mail, I as Instagram, F as Facebook, T as Twitter, Y as Youtube, f as CircleCheck } from "../_libs/lucide-react.mjs";
+import { b as MapPin, e as Clock, P as Phone, A as ArrowRight, c as Mail, I as Instagram, F as Facebook, T as Twitter, Y as Youtube, g as CircleCheck } from "../_libs/lucide-react.mjs";
 import "../_libs/form-data.mjs";
 import "fs";
 import "../_libs/combined-stream.mjs";
