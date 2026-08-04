@@ -116,23 +116,18 @@ export function Navbar() {
   }, [open]);
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-        scrolled || open
-          ? `
-            mx-4 mt-4 rounded-2xl
-            bg-white/95 dark:bg-neutral-950/85
-            backdrop-blur-2xl
-            shadow-[0_4px_12px_rgba(15,81,50,0.04),0_16px_48px_rgba(15,81,50,0.10),0_32px_80px_rgba(0,0,0,0.08)]
-          `
-          : `
-            bg-white/80 dark:bg-transparent
-            backdrop-blur-md
-          `
-      )}
-      ref={navbarRef}
-    >
+   <header
+  className={cn(
+    "fixed inset-x-0 top-0 z-50 transition-all duration-500",
+    `
+      mx-4 mt-4 rounded-2xl
+      bg-white/95 dark:bg-neutral-950/85
+      backdrop-blur-2xl
+      shadow-[0_4px_12px_rgba(15,81,50,0.04),0_16px_48px_rgba(15,81,50,0.10),0_32px_80px_rgba(0,0,0,0.08)]
+    `
+  )}
+  ref={navbarRef}
+>
       <div className="mx-auto flex h-14 sm:h-16 lg:h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-12">
         
         {/* LOGO */}

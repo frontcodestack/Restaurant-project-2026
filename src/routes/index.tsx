@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import heroImg from "@/assets/hero-riad.jpg";
+import heroImg from "@/assets/hero-image.avif";
 import BGZ from "@/assets/BGZ.svg";
 import chefImg from "@/assets/chef.jpg";
 import courtyardImg from "@/assets/gallery-courtyard.jpg";
@@ -310,103 +310,108 @@ function Index() {
 
   return (
     <>
+     <div
+    className="fixed inset-0 -z-20 pointer-events-none"
+    aria-hidden="true"
+  >
+    <div
+      className="absolute inset-0 opacity-10"
+      style={{
+        backgroundImage: `url(${BGZ})`,
+        backgroundRepeat: "repeat",
+        backgroundSize: "650px",
+      }}
+    />
+
+    {/* Global overlay for the shared background */}
+    <div className="absolute inset-0 bg-white/90 dark:bg-black/20" />
+  </div>
       {/* ==================== HERO ==================== */}
       <section className="hero-section relative min-h-screen overflow-hidden">
-        <motion.img
-          src={heroImg}
-          alt={t("home.hero.image_alt")}
-          className="absolute inset-0 h-full w-full object-cover"
-          fetchPriority="high"
-          initial={{ scale: 1.15 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 2.5, ease: "easeOut" }}
-        />
-        <div className="absolute inset-0 bg-linear-to-b from-black/50 via-black/30 to-black/70" />
+  <motion.img
+    src={heroImg}
+    alt={t("home.hero.image_alt")}
+    className="absolute inset-0 h-full w-full object-cover"
+    fetchPriority="high"
+    initial={{ scale: 1.15 }}
+    animate={{ scale: 1 }}
+    transition={{ duration: 2.5, ease: "easeOut" }}
+  />
+  <div className="absolute inset-0 bg-linear-to-b from-black/50 via-black/30 to-black/70" />
 
-        {/* Hero Content */}
-        <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 text-center">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="show"
-            className="max-w-4xl"
-          >
-            <motion.p 
-              variants={heroTextVariants}
-              className="text-gold/80 text-sm mb-3 font-display italic"
-            >
-              — طعم من أصالة —
-            </motion.p>
-            <motion.h1 
-              variants={heroTextVariants}
-              className="font-display text-5xl leading-[1.1] text-white sm:text-6xl md:text-7xl lg:text-8xl"
-            >
-              {t("home.hero.title_line1")}
-              <br />
-              <em className="not-italic text-gold">{t("home.hero.title_line2")}</em>
-            </motion.h1>
-            <motion.p 
-              variants={heroTextVariants}
-              className="mt-4 max-w-2xl mx-auto text-base leading-relaxed text-white/70 sm:text-lg"
-            >
-              {t("home.hero.description")}
-            </motion.p>
-            <motion.div 
-              variants={heroTextVariants}
-              className="mt-8 flex flex-wrap items-center justify-center gap-4"
-            >
-              <Link
-                to="/reservations"
-                className="inline-flex items-center gap-2 rounded-sm bg-gold px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] font-semibold text-gold-foreground shadow-xl transition-transform hover:scale-[1.03]"
-              >
-                {t("home.hero.cta_primary")}
-              </Link>
-              <Link
-                to="/menu"
-                className="inline-flex link-menu items-center gap-2 rounded-sm border border-white/40 bg-transparent px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] font-semibold text-white transition-colors hover:bg-white/10"
-              >
-                {t("home.hero.cta_secondary")}
-              </Link>
-            </motion.div>
-          </motion.div>
+  {/* Hero Content */}
+  <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 pb-28 pt-20 text-center sm:px-6 sm:pb-24 md:pb-20">
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="show"
+      className="max-w-4xl"
+    >
+      <motion.p
+        variants={heroTextVariants}
+        className="font-display text-xs italic text-gold/80 sm:mt-5 sm:text-sm"
+      >
+        — طعم من أصالة —
+      </motion.p>
+      <motion.h1
+        variants={heroTextVariants}
+        className="font-display text-4xl leading-[1.1] text-white sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
+      >
+        {t("home.hero.title_line1")}
+        <br />
+        <em className="not-italic text-gold">{t("home.hero.title_line2")}</em>
+      </motion.h1>
+      <motion.p
+        variants={heroTextVariants}
+        className="mx-auto mt-3 max-w-xl px-2 text-sm leading-relaxed text-white/70 sm:mt-4 sm:max-w-2xl sm:px-0 sm:text-base md:text-lg"
+      >
+        {t("home.hero.description")}
+      </motion.p>
+      <motion.div
+        variants={heroTextVariants}
+        className="mt-6 flex w-full flex-col items-center justify-center gap-3 px-4 sm:mt-8 sm:flex-row sm:gap-4 sm:px-0"
+      >
+        <Link
+          to="/reservations"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-sm bg-gold px-6 py-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-gold-foreground shadow-xl transition-transform hover:scale-[1.03] sm:w-auto sm:px-8 sm:py-3.5 sm:text-[11px]"
+        >
+          {t("home.hero.cta_primary")}
+        </Link>
+        <Link
+          to="/menu"
+          className="link-menu inline-flex w-full items-center justify-center gap-2 rounded-sm border border-white/40 bg-transparent px-6 py-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-white/10 sm:w-auto sm:px-8 sm:py-3.5 sm:text-[11px]"
+        >
+          {t("home.hero.cta_secondary")}
+        </Link>
+      </motion.div>
+    </motion.div>
+  </div>
 
-          {/* Info bar */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2, duration: 0.8 }}
-            className="absolute bottom-0 left-0 right-0 flex flex-wrap items-center justify-center gap-6 border-t border-white/20 bg-black/40 backdrop-blur-sm px-6 py-3 text-xs text-white/70"
-          >
-            <span className="flex items-center gap-2">
-              <Clock className="h-3.5 w-3.5 text-gold" />
-              {t("home.hero.open_hours")}
-            </span>
-            <span className="flex items-center gap-2">
-              <MapPin className="h-3.5 w-3.5 text-gold" />
-              {t("home.hero.location")}
-            </span>
-            <span className="flex items-center gap-2">
-              <Phone className="h-3.5 w-3.5 text-gold" />
-              +212 524 389 214
-            </span>
-          </motion.div>
-        </div>
-      </section>
+  {/* Info bar */}
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 1.2, duration: 0.8 }}
+    className="absolute bottom-0 left-0 right-0 flex flex-col items-center justify-center gap-3 border-t border-gray-50/20 bg-gray-950/40 px-4 py-4 text-xs text-white/70 backdrop-blur-sm sm:flex-row sm:gap-6 sm:px-6 sm:py-3"
+  >
+    <span className="flex items-center gap-2">
+      <Clock className="h-3.5 w-3.5 text-gold" />
+      {t("home.hero.open_hours")}
+    </span>
+    <span className="hidden h-3 w-px bg-white/20 sm:inline-block" />
+    <span className="flex items-center gap-2">
+      <MapPin className="h-3.5 w-3.5 text-gold" />
+      {t("home.hero.location")}
+    </span>
+    <span className="hidden h-3 w-px bg-white/20 sm:inline-block" />
+    <span className="flex items-center gap-2">
+      <Phone className="h-3.5 w-3.5 text-gold" />
+      +212 524 389 214
+    </span>
+  </motion.div>
+</section>
 
-      <div className="relative overflow-hidden dark:bg-[#1a1510]">
-        {/* Shared background */}
-        <div
-          className="fixed inset-0 opacity-10 pointer-events-none"
-          style={{
-            backgroundImage: `url(${BGZ})`,
-            backgroundRepeat: "repeat",
-            backgroundSize: "650px",
-          }}
-        />
 
-        {/* Shared overlay */}
-        <div className="absolute inset-0 dark:bg-black/20 bg-white/90 pointer-events-none" />
-        
         {/* ==================== OUR STORY ==================== */}
         <section className="light relative py-10 sm:py-12 dark:bg-transparent">
           <div className="relative mx-auto max-w-7xl px-6 lg:px-12">
@@ -1185,7 +1190,7 @@ function Index() {
             </div>
           </div>
         </section>
-      </div>
+     
     </>
   );
 }

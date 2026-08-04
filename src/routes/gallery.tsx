@@ -164,6 +164,22 @@ function GalleryPage() {
   return (
     <div dir={i18n.dir()} className="overflow-x-hidden">
       {/* ==================== HERO SECTION ==================== */}
+          <div
+          className="fixed inset-0 -z-20 pointer-events-none"
+          aria-hidden="true"
+        >
+          <div
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage: `url(${BGZ})`,
+              backgroundRepeat: "repeat",
+              backgroundSize: "650px",
+            }}
+          />
+      
+          {/* Global overlay for the shared background */}
+          <div className="absolute inset-0 bg-white/90 dark:bg-black/20" />
+        </div>
       <section className="hero-section relative min-h-90 sm:h-[80dvh] overflow-hidden">
         <motion.div 
           className="absolute inset-0 bg-cover bg-center bg-fixed"
@@ -188,7 +204,7 @@ function GalleryPage() {
             animate="show"
             className="mx-auto max-w-3xl text-center"
           >
-            <motion.div variants={itemVariants} className="mt-2 sm:mt-3 mb-2 sm:mb-3 flex items-center justify-center gap-2 sm:gap-3">
+            <motion.div variants={itemVariants} className="mt-8 sm:mt-3 mb-2 sm:mb-3 flex items-center justify-center gap-2 sm:gap-3">
               <span className="h-px w-6 sm:w-8 md:w-10 bg-gold/60" />
               <span className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em] text-gold/80">
                 {t("gallery.hero.badge")}
@@ -334,16 +350,6 @@ function GalleryPage() {
         </div>
       </section>
 
-      <div className="relative overflow-hidden bg-[#1a1510]">
-        <div
-          className="fixed inset-0 opacity-10 pointer-events-none"
-          style={{
-            backgroundImage: `url(${BGZ})`,
-            backgroundRepeat: "repeat",
-            backgroundSize: "650px",
-          }}
-        />
-        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
 
         {/* ==================== GALLERY GRID ==================== */}
         <section className="relative bg-transparent py-10 sm:py-12 lg:py-16">
@@ -610,6 +616,6 @@ function GalleryPage() {
           )}
         </AnimatePresence>
       </div>
-    </div>
+    
   );
 }

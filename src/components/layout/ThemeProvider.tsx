@@ -16,7 +16,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
         return stored;
       }
     }
-    return "dark"; // Default fallback
+    return "light"; // Default fallback
   };
 
   const [theme, setTheme] = useState<Theme>(getInitialTheme);

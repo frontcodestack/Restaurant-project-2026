@@ -253,7 +253,7 @@ function About() {
             animate="show"
             className="mx-auto max-w-3xl text-center"
           >
-            <motion.div variants={itemVariants} className="mt-2 sm:mt-3 mb-2 sm:mb-3 flex items-center justify-center gap-2 sm:gap-3">
+            <motion.div variants={itemVariants} className="sm:mt-3 mt-5   mb-2 sm:mb-3 flex items-center justify-center gap-2 sm:gap-3">
               <span className="h-px w-6 sm:w-10 md:w-12 bg-gold/60" />
               <span className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em] text-gold/80">
                 {t("about.hero.badge")}
@@ -278,7 +278,7 @@ function About() {
             transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.5 }}
             className="mt-6 sm:mt-0 sm:absolute sm:bottom-3 md:bottom-6 lg:bottom-8 sm:left-1/2 sm:z-20 sm:w-[92%] sm:max-w-3xl sm:-translate-x-1/2"
           >
-            <div className="relative overflow-hidden rounded-2xl sm:rounded-full border border-white/10 bg-[#1a1510]/85 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] mx-auto w-full max-w-2xl">
+            <div className="relative overflow-hidden rounded-2xl sm:rounded-full border border-gray-50/10 bg-[#1a1510]/85 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] mx-auto w-full max-w-2xl">
               <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-gold/30 to-transparent" />
 
               <div className="relative z-10 grid grid-cols-2 sm:flex sm:items-center sm:justify-between px-4 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-2.5 md:py-3 gap-4 sm:gap-0">
@@ -288,17 +288,17 @@ function About() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.7 + i * 0.1, type: "spring", stiffness: 200, damping: 20 }}
-                    className={`group flex flex-col items-center justify-center ${
-                      i < 2 ? "sm:border-r border-white/10" : ""
-                    } ${i >= 2 ? "border-t sm:border-t-0 border-white/10 pt-4 sm:pt-0" : ""}`}
+                    className={`group flex flex-col items-center  justify-center ${
+                      i < 3 ? "sm:border-r border-gray-50/10" : ""
+                    } ${i >= 2 ? "border-t sm:border-t-0 border-gray-50/10 pt-4 sm:pt-0" : ""}`}
                   >
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 ">
                       <stat.icon className="h-4 w-4 sm:h-3 sm:w-3 md:h-3.5 md:w-3.5 text-gold group-hover:text-gold/80 transition-colors duration-300 shrink-0" />
                       <span className="font-display text-base sm:text-[10px] md:text-sm lg:text-base text-white group-hover:text-gold transition-colors duration-300">
                         {stat.value}
                       </span>
                     </div>
-                    <span className="mt-1 text-[10px] sm:text-[6px] md:text-[9px] lg:text-[10px] uppercase tracking-[0.15em] sm:tracking-[0.1rem] md:tracking-[0.15em] text-white/50 group-hover:text-white/60 transition-colors duration-300 text-center">
+                    <span className="mt-1 text-[10px] sm:mr-2 sm:text-[6px] md:text-[9px] lg:text-[10px] uppercase tracking-[0.15em] sm:tracking-[0.1rem] md:tracking-[0.15em] text-white/50 group-hover:text-white/60 transition-colors duration-300 text-center">
                       {stat.label}
                     </span>
                   </motion.div>
@@ -434,7 +434,7 @@ function About() {
                   variants={itemVariants}
                   whileHover={{ y: -8, borderColor: "rgba(255,215,0,0.4)" }}
                   transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                  className="rounded-sm border border-white/10 bg-[#0f0c09] p-5 sm:p-6 lg:p-8 transition-colors"
+                  className="rounded-sm border border-gray-50/10 bg-[#0f0c09] p-5 sm:p-6 lg:p-8 transition-colors"
                 >
                   <div className={`mx-auto flex h-10 w-10 sm:h-11 sm:w-11 md:h-12 md:w-12 items-center justify-center rounded-sm bg-white/5 ${principle.color}`}>
                     <principle.icon className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -934,7 +934,7 @@ function About() {
                 <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 400, damping: 25 }}>
                   <Link
                     to="/menu"
-                    className="inline-flex items-center justify-center gap-2 rounded-sm border border-white/30 bg-transparent px-6 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm uppercase tracking-[0.2em] font-semibold text-white min-h-12"
+                    className="inline-flex items-center justify-center gap-2 rounded-sm border  border-gray-50/30 bg-transparent px-6 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm uppercase tracking-[0.2em] font-semibold text-gray-50 min-h-12"
                   >
                     {t("about.cta.menu")}
                   </Link>

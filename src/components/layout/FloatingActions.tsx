@@ -24,22 +24,7 @@ export function FloatingActions() {
         </span>
       </motion.a>
 
-      {/* Mobile Reservation */}
-      <motion.div
-        initial={{ opacity: 0, x: 40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.7 }}
-        className="sm:hidden"
-      >
-        <Link
-          to="/reservations"
-          className="flex items-center gap-2 rounded-full bg-gold px-5 py-3 text-sm font-semibold text-gold-foreground shadow-xl shadow-gold/30 transition-transform hover:scale-105"
-        >
-          <CalendarCheck className="h-4 w-4" />
-
-          Reserve
-        </Link>
-      </motion.div>
+     
     </div>
   );
 }

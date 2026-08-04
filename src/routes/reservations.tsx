@@ -177,9 +177,31 @@ function Reservations() {
 
   const today = new Date().toISOString().slice(0, 10);
 
+  const infoStats = [
+    { icon: Clock, value: t("reservations.info.hours"), label: t("reservations.info.hours_desc") },
+    { icon: Users, value: t("reservations.info.large_parties"), label: t("reservations.info.large_parties_desc") },
+    { icon: Sparkles, value: t("reservations.info.dress_code"), label: t("reservations.info.dress_code_desc") },
+  ];
+
   return (
     <div className="overflow-x-hidden">
       {/* ==================== HERO ==================== */}
+       <div
+          className="fixed inset-0 -z-20 pointer-events-none"
+          aria-hidden="true"
+        >
+          <div
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage: `url(${BGZ})`,
+              backgroundRepeat: "repeat",
+              backgroundSize: "650px",
+            }}
+          />
+      
+          {/* Global overlay for the shared background */}
+          <div className="absolute inset-0 bg-white/90 dark:bg-black/20" />
+        </div>
       <section className="hero-section relative min-h-90 sm:h-[80dvh] overflow-hidden">
         <motion.div 
           className="absolute inset-0 bg-cover bg-center bg-fixed"
@@ -190,7 +212,7 @@ function Reservations() {
         />
         <div className="absolute inset-0 bg-linear-to-b from-[#1a1510]/90 via-[#1a1510]/70 to-[#1a1510]" />
 
-        <div className="relative z-10 mx-auto w-[92%] max-w-350 px-4 sm:px-6 pt-14 sm:pt-16 md:pt-20 lg:pt-24 pb-8 sm:pb-20 md:pb-24 lg:pb-28">
+        <div className="relative z-10 mx-auto w-[92%] max-w-350 px-4 sm:mt-0 mt-5 sm:px-6 pt-14 sm:pt-16 md:pt-20 lg:pt-24 pb-8 sm:pb-20 md:pb-24 lg:pb-28">
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -216,57 +238,80 @@ function Reservations() {
             </motion.p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.5 }}
-            className="mt-6 sm:mt-0 sm:absolute sm:bottom-3 md:bottom-6 lg:bottom-8 sm:left-1/2 sm:z-20 sm:w-[92%] sm:max-w-3xl sm:-translate-x-1/2"
-          >
-            <div className="relative overflow-hidden rounded-2xl sm:rounded-full border border-white/10 bg-[#1a1510]/85 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] mx-auto w-full">
-              <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-gold/30 to-transparent" />
+        <motion.div
+  initial={{ opacity: 0, y: 30, scale: 0.95 }}
+  animate={{ opacity: 1, y: 0, scale: 1 }}
+  transition={{
+    type: "spring",
+    stiffness: 100,
+    damping: 20,
+    delay: 0.5,
+  }}
+  className="mt-5 sm:mt-0 sm:absolute sm:bottom-3 md:bottom-6 lg:bottom-8 sm:left-1/2 sm:z-20 sm:w-[92%] sm:max-w-3xl sm:-translate-x-1/2"
+>
+  <div className="relative overflow-hidden rounded-2xl sm:rounded-full border border-gray-50/10 bg-[#1a1510]/85 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] mx-auto w-full">
 
-              <div className="relative z-10 grid grid-cols-2 sm:flex sm:items-center sm:justify-between px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-3 md:py-3.5 gap-3 sm:gap-0">
-                {[
-                  { icon: Clock, value: t("reservations.info.hours"), label: t("reservations.info.hours_desc") },
-                  { icon: Users, value: t("reservations.info.large_parties"), label: t("reservations.info.large_parties_desc") },
-                  { icon: Sparkles, value: t("reservations.info.dress_code"), label: t("reservations.info.dress_code_desc") },
-                  { icon: CalendarCheck, value: t("reservations.info.reservation_policy"), label: t("reservations.info.reservation_policy_desc") },
-                ].map((stat, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.7 + i * 0.1, type: "spring", stiffness: 200, damping: 20 }}
-                    className={`group flex flex-col items-center justify-center ${
-                      i < 3 ? "sm:border-r border-white/10" : ""
-                    } ${i >= 2 ? "border-t sm:border-t-0 border-white/10 pt-4 sm:pt-0" : ""}`}
-                  >
-                    <div className="flex items-center gap-2">
-                      <stat.icon className="h-4 w-4 sm:h-3.5 sm:w-3.5 md:h-4 md:w-4 text-gold group-hover:text-gold/80 transition-colors duration-300 shrink-0" />
-                      <span className="font-display text-sm sm:text-[11px] md:text-sm lg:text-base text-white group-hover:text-gold transition-colors duration-300 text-center leading-tight">
-                        {stat.value}
-                      </span>
-                    </div>
-                    <span className="mt-1 text-[10px] sm:text-[7px] md:text-[9px] lg:text-[10px] uppercase tracking-[0.12em] sm:tracking-[0.08em] md:tracking-widest text-white/50 group-hover:text-white/60 transition-colors duration-300 text-center leading-tight">
-                      {stat.label}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
+    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+
+    <div className="relative z-10 grid grid-cols-1 sm:flex sm:items-center sm:justify-between px-2 sm:px-4 md:px-6 lg:px-8 py-2 sm:py-3 md:py-3.5 gap-2 sm:gap-0">
+
+      {[
+        {
+          icon: Clock,
+          value: t("reservations.info.hours"),
+          label: t("reservations.info.hours_desc"),
+        },
+        {
+          icon: Users,
+          value: t("reservations.info.large_parties"),
+          label: t("reservations.info.large_parties_desc"),
+        },
+        {
+          icon: Sparkles,
+          value: t("reservations.info.dress_code"),
+          label: t("reservations.info.dress_code_desc"),
+        },
+      ].map((stat, i, arr) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.7 + i * 0.1,
+            type: "spring",
+            stiffness: 200,
+            damping: 20,
+          }}
+          className={`
+            group flex flex-col items-center justify-center
+            py-2 sm:py-0
+            ${
+              i < arr.length - 1
+                ? "border-b border-gray-50/10 pb-3 sm:border-b-0 sm:border-r sm:pb-0 sm:pr-8 md:pr-10"
+                : ""
+            }
+          `}
+        >
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <stat.icon className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-4 md:w-4 text-gold transition-colors duration-300 group-hover:text-gold/80 shrink-0" />
+
+            <span className="font-display whitespace-nowrap text-xs sm:text-[11px] md:text-sm lg:text-base text-white transition-colors duration-300 group-hover:text-gold leading-tight">
+              {stat.value}
+            </span>
+          </div>
+
+          <span className="mt-1 text-center text-[8px] sm:text-[7px] md:text-[9px] lg:text-[10px] uppercase tracking-[0.08em] md:tracking-widest text-white/50 transition-colors duration-300 group-hover:text-white/60 leading-tight">
+            {stat.label}
+          </span>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</motion.div>
         </div>
       </section>
 
-      <div className="relative overflow-hidden bg-[#1a1510]">
-        <div
-          className="fixed inset-0 opacity-10 pointer-events-none"
-          style={{
-            backgroundImage: `url(${BGZ})`,
-            backgroundRepeat: "repeat",
-            backgroundSize: "650px",
-          }}
-        />
+     
 
         {/* ==================== BOOKING FORM ==================== */}
         <section id="booking" className="relative py-8 sm:py-10 lg:py-12 bg-transparent overflow-hidden transition-colors duration-500">
@@ -821,7 +866,6 @@ function Reservations() {
           </div>
         </section>
       </div>
-    </div>
   );
 }
 

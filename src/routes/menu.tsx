@@ -190,7 +190,7 @@ function MenuPage() {
   return (
     <>
       {/* ==================== HERO ==================== */}
-      <section className="hero-section relative min-h-70 sm:h-[80dvh] overflow-hidden">
+      <section className="hero-section relative  min-h-70 sm:h-[80dvh] overflow-hidden">
         <motion.div 
           className="absolute inset-0 bg-cover bg-center bg-fixed"
           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38')" }}
@@ -198,7 +198,7 @@ function MenuPage() {
           animate={{ scale: 1 }}
           transition={{ duration: 2.5, ease: "easeOut" }}
         />
-        <div className="absolute inset-0 bg-linear-to-b from-[#1a1510]/90 via-[#1a1510]/70 to-[#1a1510]" />
+        <div className="absolute inset-0  bg-linear-to-b from-[#1a1510]/90 via-[#1a1510]/70 to-[#1a1510]" />
 
         <div
           className="absolute inset-0 opacity-[0.03]"
@@ -207,7 +207,7 @@ function MenuPage() {
           }}
         />
 
-        <div className="relative z-10 mx-auto w-[92%] max-w-350 px-4 sm:px-6 lg:px-8 flex flex-col justify-center items-center min-h-70 sm:min-h-0 pt-6 sm:pt-16 md:pt-20 lg:pt-24 pb-6 sm:pb-16 md:pb-20 lg:pb-24">
+        <div className="relative z-10 sm:mt-0 mt-5  mx-auto w-[92%] max-w-350 px-4 sm:px-6 lg:px-8 flex flex-col justify-center items-center min-h-70 sm:min-h-0 pt-6 sm:pt-16 md:pt-20 lg:pt-24 pb-6 sm:pb-16 md:pb-20 lg:pb-24">
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -216,7 +216,7 @@ function MenuPage() {
           >
             <motion.div variants={itemVariants} className="mt-2 sm:mt-3 mb-2 sm:mb-3 flex items-center justify-center gap-2 sm:gap-3">
               <span className="h-px w-6 sm:w-10 md:w-12 bg-gold/60" />
-              <span className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em] text-gold/80">
+              <span className="text-[8px] sm:text-[10px] md:text-xs  whitespace-nowrap uppercase tracking-[0.25em] sm:tracking-[0.35em] text-gold/80">
                 {t("menu.hero.badge")}
               </span>
               <span className="h-px w-6 sm:w-10 md:w-12 bg-gold/60" />
@@ -325,18 +325,26 @@ function MenuPage() {
           </div>
         </div>
       </section>
+       <div
+          className="fixed inset-0 -z-20 pointer-events-none"
+          aria-hidden="true"
+        >
+          <div
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage: `url(${BGZ})`,
+              backgroundRepeat: "repeat",
+              backgroundSize: "650px",
+            }}
+          />
+      
+          {/* Global overlay for the shared background */}
+          <div className="absolute inset-0 bg-white/90 dark:bg-black/20" />
+        </div>
 
       {/* ==================== MENU CONTENT ==================== */}
       <section className="relative light py-14 bg-[#1a1510]">
-        <div
-          className="fixed inset-0 opacity-10 pointer-events-none"
-          style={{
-            backgroundImage: `url(${BGZ})`,
-            backgroundRepeat: "repeat",
-            backgroundSize: "650px",
-          }}
-        />
-        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+      
        
         <div className="relative mx-auto max-w-7xl px-6 lg:px-12">
           <motion.div 
