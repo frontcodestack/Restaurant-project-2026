@@ -23,7 +23,7 @@
       "cta_secondary": "View Our Menu",
       "open_hours": "Open Daily 12PM – 11PM",
       "location": "Marrakech Medina, Morocco",
-      "phone": "+212 524 389 214"
+      "phone": "212 000 000 000"
     },
     "story": {
       "label": "Our Story",
@@ -400,7 +400,7 @@
       "email": "Email Address",
       "email_placeholder": "ahmed@example.com",
       "phone": "Phone Number",
-      "phone_placeholder": "+212 600 000 000",
+      "phone_placeholder": "212 000 000 000",
       "party_size": "Party Size",
       "party_size_desc": "How many guests will be dining?",
       "guest_one": "Guest",
@@ -501,7 +501,7 @@
     },
     "phone": {
       "title": "Call Us",
-      "text": "+212 524 389 214",
+      "text": "212 000 000 000",
       "link": "Call Now"
     },
     "email": {
@@ -544,7 +544,7 @@
     "email": "Email Address",
     "email_placeholder": "ahmed@example.com",
     "phone": "Phone Number",
-    "phone_placeholder": "+212 600 000 000",
+    "phone_placeholder": "212 000 000 000",
     "subject": "Subject",
     "select_subject": "Select a subject",
     "subjects": {

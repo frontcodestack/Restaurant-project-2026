@@ -23,7 +23,7 @@
       "cta_secondary": "Voir Notre Menu",
       "open_hours": "Ouvert Tous les Jours 12h – 23h",
       "location": "Médina de Marrakech, Maroc",
-      "phone": "+212 524 389 214"
+      "phone": "212 000 000 000"
     },
     "story": {
       "label": "Notre Histoire",
@@ -400,7 +400,7 @@
       "email": "Adresse Email",
       "email_placeholder": "ahmed@example.com",
       "phone": "Numéro de Téléphone",
-      "phone_placeholder": "+212 600 000 000",
+      "phone_placeholder": "212 000 000 000",
       "party_size": "Nombre d'Invités",
       "party_size_desc": "Combien d'invités vont dîner?",
       "guest_one": "Invité",
@@ -501,7 +501,7 @@
     },
     "phone": {
       "title": "Appelez-nous",
-      "text": "+212 524 389 214",
+      "text": "212 000 000 000",
       "link": "Appeler"
     },
     "email": {

@@ -321,7 +321,7 @@ function Index() {
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "hidden h-3 w-px bg-white/20 sm:inline-block" }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-2", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(Phone, { className: "h-3.5 w-3.5 text-gold" }),
-          "+212 524 389 214"
+          "212 000 000 000"
         ] })
       ] })
     ] }),

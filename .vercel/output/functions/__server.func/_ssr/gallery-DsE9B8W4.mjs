@@ -2,7 +2,7 @@ import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { c as courtyardImg, s as spicesImg, a as chefImg } from "./chef-BzIPVwiL.mjs";
 import { l as lanternsImg } from "./gallery-lanterns-IRxDErjr.mjs";
 import { t as tagine, c as couscous, p as pastilla, g as grill, a as tea, z as zaalouk } from "./dish-tea-BQIvIyxz.mjs";
-import { c as cn } from "./router-C9VGNl8Q.mjs";
+import { c as cn } from "./router-BK87J717.mjs";
 import { B as BGZ } from "./BGZ-CG54wZoT.mjs";
 import "../_libs/i18next.mjs";
 import { u as useTranslation } from "../_libs/react-i18next.mjs";

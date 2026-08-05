@@ -23,7 +23,7 @@
       "cta_secondary": "شاهد قائمتنا",
       "open_hours": "مفتوح يوميًا 12 ظهرًا – 11 مساءً",
       "location": "مدينة مراكش القديمة، المغرب",
-      "phone": "+212 524 389 214"
+      "phone": "212 000 000 000"
     },
     "story": {
       "label": "قصتنا",
@@ -400,7 +400,7 @@
       "email": "البريد الإلكتروني",
       "email_placeholder": "ahmed@example.com",
       "phone": "رقم الهاتف",
-      "phone_placeholder": "+212 600 000 000",
+      "phone_placeholder": "212 000 000 000",
       "party_size": "عدد الضيوف",
       "party_size_desc": "كم عدد الضيوف الذين سيتناولون الطعام؟",
       "guest_one": "ضيف",
@@ -499,7 +499,7 @@
         "title": "عنواننا",
         "text": "123 درب سيدي أحمد، المدينة العتيقة، مراكش 40000، المغرب"
       },
-      "phone": { "title": "اتصل بنا", "text": "+212 524 389 214", "link": "اتصل الآن" },
+      "phone": { "title": "اتصل بنا", "text": "212 000 000 000", "link": "اتصل الآن" },
       "email": { "title": "راسلنا", "text": "hello@darmedina.ma", "link": "إرسال بريد إلكتروني" },
       "hours": {
         "title": "ساعات العمل",
@@ -533,7 +533,7 @@
       "email": "البريد الإلكتروني",
       "email_placeholder": "ahmed@example.com",
       "phone": "رقم الهاتف",
-      "phone_placeholder": "+212 600 000 000",
+      "phone_placeholder": "212 000 000 000",
       "subject": "الموضوع",
       "select_subject": "اختر موضوعًا",
       "subjects": {

@@ -406,7 +406,7 @@ function Index() {
     <span className="hidden h-3 w-px bg-white/20 sm:inline-block" />
     <span className="flex items-center gap-2">
       <Phone className="h-3.5 w-3.5 text-gold" />
-      +212 524 389 214
+      212 000 000 000
     </span>
   </motion.div>
 </section>

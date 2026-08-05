@@ -1,6 +1,6 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { M as MENU, C as CATEGORIES } from "./menu-data-Dm_bhmZ_.mjs";
-import { c as cn } from "./router-C9VGNl8Q.mjs";
+import { c as cn } from "./router-BK87J717.mjs";
 import { B as BGZ } from "./BGZ-CG54wZoT.mjs";
 import "../_libs/i18next.mjs";
 import { u as useTranslation } from "../_libs/react-i18next.mjs";
