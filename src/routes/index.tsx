@@ -16,6 +16,7 @@ import { useTranslation } from "react-i18next";
 import heroImg from "@/assets/hero-image.avif";
 import BGZ from "@/assets/BGZ.svg";
 import chefImg from "@/assets/chef.jpg";
+import reservationImg from "@/assets/reservation-backgorund.jpg";
 import courtyardImg from "@/assets/gallery-courtyard.jpg";
 import lanternsImg from "@/assets/gallery-lanterns.jpg";
 import spicesImg from "@/assets/gallery-spices.jpg";
@@ -328,14 +329,11 @@ function Index() {
   </div>
       {/* ==================== HERO ==================== */}
       <section className="hero-section relative min-h-screen overflow-hidden">
-  <motion.img
+  <img
     src={heroImg}
     alt={t("home.hero.image_alt")}
     className="absolute inset-0 h-full w-full object-cover"
     fetchPriority="high"
-    initial={{ scale: 1.15 }}
-    animate={{ scale: 1 }}
-    transition={{ duration: 2.5, ease: "easeOut" }}
   />
   <div className="absolute inset-0 bg-linear-to-b from-black/50 via-black/30 to-black/70" />
 
@@ -388,27 +386,67 @@ function Index() {
   </div>
 
   {/* Info bar */}
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ delay: 1.2, duration: 0.8 }}
-    className="absolute bottom-0 left-0 right-0 flex flex-col items-center justify-center gap-3 border-t border-gray-50/20 bg-gray-950/40 px-4 py-4 text-xs text-white/70 backdrop-blur-sm sm:flex-row sm:gap-6 sm:px-6 sm:py-3"
+```tsx
+{/* Info bar */}
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 1.2, duration: 0.8 }}
+  className="absolute bottom-0 left-0 right-0 flex flex-col items-center justify-center gap-3 border-t border-gray-50/20 bg-gray-950/40 px-4 py-4 text-xs text-white backdrop-blur-sm sm:flex-row sm:gap-6 sm:px-6 sm:py-3"
+>
+  <span
+    className="flex items-center gap-2"
+    style={{
+      textShadow:
+        "0 2px 4px rgba(0,0,0,0.9), 0 4px 12px rgba(0,0,0,0.75)",
+    }}
   >
-    <span className="flex items-center gap-2">
-      <Clock className="h-3.5 w-3.5 text-gold" />
-      {t("home.hero.open_hours")}
-    </span>
-    <span className="hidden h-3 w-px bg-white/20 sm:inline-block" />
-    <span className="flex items-center gap-2">
-      <MapPin className="h-3.5 w-3.5 text-gold" />
-      {t("home.hero.location")}
-    </span>
-    <span className="hidden h-3 w-px bg-white/20 sm:inline-block" />
-    <span className="flex items-center gap-2">
-      <Phone className="h-3.5 w-3.5 text-gold" />
-      212 000 000 000
-    </span>
-  </motion.div>
+    <Clock
+      className="h-3.5 w-3.5 text-gold"
+      style={{
+        filter: "drop-shadow(0 2px 3px rgba(0,0,0,0.9))",
+      }}
+    />
+    {t("home.hero.open_hours")}
+  </span>
+
+  <span className="hidden h-3 w-px bg-white/30 sm:inline-block" />
+
+  <span
+    className="flex items-center gap-2"
+    style={{
+      textShadow:
+        "0 2px 4px rgba(0,0,0,0.9), 0 4px 12px rgba(0,0,0,0.75)",
+    }}
+  >
+    <MapPin
+      className="h-3.5 w-3.5 text-gold"
+      style={{
+        filter: "drop-shadow(0 2px 3px rgba(0,0,0,0.9))",
+      }}
+    />
+    {t("home.hero.location")}
+  </span>
+
+  <span className="hidden h-3 w-px bg-white/30 sm:inline-block" />
+
+  <span
+    className="flex items-center gap-2"
+    style={{
+      textShadow:
+        "0 2px 4px rgba(0,0,0,0.9), 0 4px 12px rgba(0,0,0,0.75)",
+    }}
+  >
+    <Phone
+      className="h-3.5 w-3.5 text-gold"
+      style={{
+        filter: "drop-shadow(0 2px 3px rgba(0,0,0,0.9))",
+      }}
+    />
+    212 000 000 000
+  </span>
+</motion.div>
+
 </section>
 
 
@@ -424,8 +462,7 @@ function Index() {
                 viewport={{ once: true, margin: "-100px" }}
                 className="relative"
               >
-                <motion.div 
-                  variants={imageRevealVariants}
+                <div
                   className="relative mx-auto max-w-md overflow-hidden rounded-t-[50%] rounded-b-lg border-4 border-gold/20 shadow-2xl"
                   style={{
                     clipPath: "polygon(0% 15%, 50% 0%, 100% 15%, 100% 100%, 0% 100%)",
@@ -437,7 +474,7 @@ function Index() {
                     loading="lazy"
                     className="h-full w-full object-cover"
                   />
-                </motion.div>
+                </div>
                 <motion.div 
                   variants={itemVariants}
                   className="absolute -bottom-3 left-1/2 -translate-x-1/2 rounded-sm bg-[#1a1510] px-5 py-3 text-center shadow-xl"
@@ -505,7 +542,7 @@ function Index() {
                 <motion.div variants={itemVariants}>
                   <Link
                     to="/about"
-                    className="mt-6 inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.2em] text-white transition-colors hover:text-gold group"
+                    className="mt-6 inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.2em] transition-colors hover:text-gold group"
                   >
                     {t("home.chef.story_link")}
                     <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
@@ -541,66 +578,148 @@ function Index() {
             </motion.div>
 
             {/* Gallery Grid */}
-            <motion.div 
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: "-50px" }}
-              className="grid gap-3 lg:grid-cols-[1.2fr_1fr]"
-            >
-              {/* Large image */}
-              <motion.div
-                variants={itemVariants}
-                className="relative aspect-4/3 overflow-hidden rounded-sm shadow-xl group"
-              >
-                <motion.img
-                  src={courtyardImg}
-                  alt={t("home.gallery.images.courtyard")}
-                  loading="lazy"
-                  className="h-full w-full object-cover"
-                  whileHover={{ scale: 1.08 }}
-                  transition={{ duration: 0.7, ease: "easeOut" }}
-                />
-              </motion.div>
+         <motion.div
+  variants={containerVariants}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true, margin: "-50px" }}
+  className="
+    grid
+    gap-3
+    lg:grid-cols-4
+    lg:grid-rows-2
+    lg:h-[520px]
+  "
+>
+  {/* Large image - left */}
+  <motion.div
+    variants={itemVariants}
+    className="
+      relative
+      overflow-hidden
+      rounded-sm
+      shadow-xl
+      group
+      lg:col-span-2
+      lg:row-span-1
+    "
+  >
+    <motion.img
+      src={heroImg}
+      alt={t("home.gallery.images.courtyard")}
+      loading="lazy"
+      className="h-full w-full object-cover"
+      whileHover={{ scale: 1.08 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    />
+  </motion.div>
 
-              {/* 2x2 grid */}
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  { src: lanternsImg, alt: t("home.gallery.images.lanterns") },
-                  {
-                    src: spicesImg,
-                    alt: t("home.gallery.images.spices"),
-                    caption: t("home.gallery.captions.rooftop"),
-                  },
-                  {
-                    src: chefImg,
-                    alt: t("home.gallery.captions.live_music_alt"),
-                    caption: t("home.gallery.captions.live_music"),
-                  },
-                  {
-                    src: featured[0]?.image || courtyardImg,
-                    alt: t("home.gallery.captions.signature_dishes_alt"),
-                    caption: t("home.gallery.captions.signature_dishes"),
-                  },
-                ].map((img, i) => (
-                  <motion.div
-                    key={i}
-                    variants={itemVariants}
-                    custom={i}
-                    className="relative aspect-4/3 overflow-hidden rounded-sm shadow-lg group"
-                  >
-                    <motion.img
-                      src={img.src}
-                      alt={img.alt}
-                      loading="lazy"
-                      className="h-full w-full object-cover"
-                      whileHover={{ scale: 1.08 }}
-                      transition={{ duration: 0.7, ease: "easeOut" }}
-                    />
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
+  {/* Top right - image 2 */}
+  <motion.div
+    variants={itemVariants}
+    className="
+      relative
+      overflow-hidden
+      rounded-sm
+      shadow-lg
+      group
+    "
+  >
+    <motion.img
+      src={lanternsImg}
+      alt={t("home.gallery.images.lanterns")}
+      loading="lazy"
+      className="h-full w-full object-cover"
+      whileHover={{ scale: 1.08 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    />
+  </motion.div>
+
+  {/* Top right - image 3 */}
+  <motion.div
+    variants={itemVariants}
+    className="
+      relative
+      overflow-hidden
+      rounded-sm
+      shadow-lg
+      group
+    "
+  >
+    <motion.img
+      src={spicesImg}
+      alt={t("home.gallery.images.spices")}
+      loading="lazy"
+      className="h-full w-full object-cover"
+      whileHover={{ scale: 1.08 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    />
+  </motion.div>
+
+  {/* Bottom left - image 4 */}
+  <motion.div
+    variants={itemVariants}
+    className="
+      relative
+      overflow-hidden
+      rounded-sm
+      shadow-lg
+      group
+    "
+  >
+    <motion.img
+      src={chefImg}
+      alt={t("home.gallery.captions.live_music_alt")}
+      loading="lazy"
+      className="h-full w-full object-cover"
+      whileHover={{ scale: 1.08 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    />
+  </motion.div>
+
+  {/* Bottom middle - image 5 */}
+  <motion.div
+    variants={itemVariants}
+    className="
+      relative
+      overflow-hidden
+      rounded-sm
+      shadow-lg
+      group
+    "
+  >
+    <motion.img
+      src={featured[0]?.image || courtyardImg}
+      alt={t("home.gallery.captions.signature_dishes_alt")}
+      loading="lazy"
+      className="h-full w-full object-cover"
+      whileHover={{ scale: 1.08 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    />
+  </motion.div>
+
+  {/* Bottom right - large image */}
+  <motion.div
+    variants={itemVariants}
+    className="
+      relative
+      overflow-hidden
+      rounded-sm
+      shadow-lg
+      group
+      lg:col-span-2
+    "
+  >
+    <motion.img
+      src={featured[1]?.image || spicesImg}
+      alt={t("home.gallery.images.spices")}
+      loading="lazy"
+      className="h-full w-full object-cover"
+      whileHover={{ scale: 1.08 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    />
+  </motion.div>
+</motion.div>
 
             <motion.div 
               variants={itemVariants}
@@ -611,7 +730,7 @@ function Index() {
             >
               <Link
                 to="/gallery"
-                className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] font-medium dark text-white hover:text-gold transition-colors group"
+                className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] font-medium   hover:text-gold transition-colors group"
               >
                 {t("home.gallery.see_gallery")}
                 <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
@@ -778,15 +897,9 @@ function Index() {
                     >
                       <div className="flex gap-1 mb-3">
                         {Array.from({ length: 5 }).map((_, j) => (
-                          <motion.div
-                            key={j}
-                            initial={{ opacity: 0, scale: 0 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: (i * 0.1) + (j * 0.05), type: "spring", stiffness: 300 }}
-                          >
+                          <span key={j} className="block">
                             <Star className="h-3.5 w-3.5 fill-gold text-gold" />
-                          </motion.div>
+                          </span>
                         ))}
                       </div>
 
@@ -821,7 +934,7 @@ function Index() {
         {/* ==================== RESERVE YOUR MOROCCAN EVENING ==================== */}
         <section className="relative light py-10 sm:py-12 overflow-hidden">
           <motion.img
-            src={courtyardImg}
+            src={reservationImg}
             alt={t("home.cta.image_alt")}
             className="absolute inset-0 h-full w-full object-cover"
             loading="lazy"

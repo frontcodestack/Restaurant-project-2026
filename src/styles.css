@@ -2,8 +2,9 @@
 @source "../src";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
+/* ================================================================
+   Theme tokens
+   ================================================================ */
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -12,6 +13,7 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -32,11 +34,13 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
+
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -45,18 +49,25 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
   --color-gold: var(--gold);
   --color-gold-foreground: var(--gold-foreground);
   --color-terracotta: var(--terracotta);
   --color-terracotta-foreground: var(--terracotta-foreground);
---font-display: "Cormorant Garamond", "Playfair Display", ui-serif, Georgia, serif;
+
+  --font-display: "Cormorant Garamond", "Playfair Display", ui-serif, Georgia, serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-arabic: "Cairo", sans-serif;
 }
 
+/* ================================================================
+   Light palette — Moroccan
+   bg #FAF7F2 · primary green #0F5132 · gold #C89B3C
+   terracotta #B65F3E · text #1F2937
+   ================================================================ */
 :root {
   --radius: 0.5rem;
-  /* Moroccan palette — bg #FAF7F2, primary green #0F5132, gold #C89B3C, terracotta #B65F3E, text #1F2937 */
+
   --background: oklch(0.972 0.008 80);
   --foreground: oklch(0.27 0.02 260);
   --card: oklch(0.99 0.005 80);
@@ -80,11 +91,13 @@
   --gold-foreground: oklch(0.22 0.02 260);
   --terracotta: oklch(0.6 0.13 40);
   --terracotta-foreground: oklch(0.98 0.01 80);
+
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
+
   --sidebar: oklch(0.984 0.003 247.858);
   --sidebar-foreground: oklch(0.129 0.042 264.695);
   --sidebar-primary: oklch(0.208 0.042 265.755);
@@ -93,274 +106,27 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+
   --surface: lch(98.77% 1.84 74.89);
   --surface-strong: oklch(0.95 0.01 90);
   --surface-panel: oklch(0.99 0.005 80);
   --surface-overlay: rgba(15, 11, 9, 0.06);
   --surface-border: oklch(0.88 0.015 80);
+
   --foreground-rgb: 31, 29, 55;
   --text-muted: oklch(0.45 0.02 260);
 }
 
-.dark {
-  --background: oklch(0.17 0.015 150);
-  --foreground: oklch(0.95 0.01 80);
-  --card: oklch(0.21 0.02 150);
-  --card-foreground: oklch(0.95 0.01 80);
-  --popover: oklch(0.21 0.02 150);
-  --popover-foreground: oklch(0.95 0.01 80);
-  --primary: oklch(0.72 0.13 78);
-  --primary-foreground: oklch(0.17 0.015 150);
-  --secondary: oklch(0.26 0.025 150);
-  --secondary-foreground: oklch(0.95 0.01 80);
-  --muted: oklch(0.25 0.02 150);
-  --muted-foreground: oklch(0.72 0.02 80);
-  --accent: oklch(0.62 0.13 55);
-  --accent-foreground: oklch(0.98 0.01 80);
-  --destructive: oklch(0.62 0.2 25);
-  --destructive-foreground: oklch(0.98 0.01 80);
-  --border: oklch(1 0 0 / 12%);
-  --input: oklch(1 0 0 / 16%);
-  --ring: oklch(0.72 0.13 78);
-  --gold: oklch(0.78 0.14 78);
-  --gold-foreground: oklch(0.17 0.015 150);
-  --terracotta: oklch(0.65 0.14 40);
-  --terracotta-foreground: oklch(0.98 0.01 80);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
-  --surface: oklch(0.21 0.02 150);
-  --surface-strong: oklch(0.17 0.015 150);
-  --surface-panel: oklch(0.21 0.02 150);
-  --surface-overlay: rgba(255, 255, 255, 0.06);
-  --surface-border: oklch(1 0 0 / 12%);
-  --background-rgb: 15, 11, 9;
-  --text-muted: oklch(0.72 0.02 80);
-}
-/* Fix select dropdown in dark mode */
-/* Dark select styling */
-.dark select {
-  appearance: none;
-  background-color: #2b241d !important;
-  color: #ffffff !important;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 0.5rem;
-  color-scheme: dark;
-  transition: all 0.2s ease;
-}
-
-.dark select:hover {
-  border-color: rgba(200, 155, 60, 0.35);
-}
-
-.dark select:focus {
-  outline: none;
-  border-color: #c89b3c;
-  box-shadow: 0 0 0 3px rgba(200, 155, 60, 0.15);
-}
-
-/* Dropdown menu */
-.dark select option {
-  background: #2b241d;
-  color: #ffffff;
-}
-
-/* Light mode */
-select {
-  background-color: #fafaf9;
-  color: #292524;
-}
-
-select option {
-  background: #ffffff;
-  color: #292524;
-}
-html:not(.dark) {
-  color-scheme: light;
-}
-
-html.dark {
-  color-scheme: dark;
-}
-
-@layer utilities {
-  .bg-surface {
-    background-color: var(--surface);
-  }
-
-  .bg-surface-strong {
-    background-color: var(--surface-strong);
-  }
-
-  .bg-surface-panel {
-    background-color: var(--surface-panel);
-  }
-
-  .bg-surface-overlay {
-    background-color: var(--surface-overlay);
-  }
-
-  .border-surface {
-    border-color: var(--surface-border);
-  }
-
-  .text-surface-muted {
-    color: var(--text-muted);
-  }
-
-  html:not(.dark) [class*="bg-[#1a1510]"] {
-    background-color: var(--surface) !important;
-  }
-
-  html:not(.dark) [class*="bg-[#0f0c09]"] {
-    background-color: var(--surface-strong) !important;
-  }
-
-  html:not(.dark) [class*="bg-black/"] {
-    background-color: var(--surface-overlay) !important;
-  }
-
-  html:not(.dark) [class*="bg-white/5"] {
-    background-color: color-mix(in srgb, var(--surface-panel) 5%, var(--surface)) !important;
-  }
-
-  html:not(.dark) [class*="bg-white/10"] {
-    background-color: color-mix(in srgb, var(--surface-panel) 10%, var(--surface)) !important;
-  }
-
-  html:not(.dark) [class*="text-white/"] {
-    color: color-mix(in srgb, var(--foreground) 90%, transparent) !important;
-  }
-  /* Keep white text on dark backgrounds in light mode */
-html:not(.dark) .keep-white-text .text-white {
-  color: rgb(255, 255, 255) !important;
-}
-
-html:not(.dark) .keep-white-text [class*="text-white/"] {
-  color: rgb(255, 255, 255) !important;
-}
-
-
-  html:not(.dark) .text-white {
-    color: var(--foreground) !important;
-  }
-html:not(.dark) .nav:hover {
-    color: rgba(239, 239, 234) !important;
-  }
-  html:not(.dark) .nav {
-    color: rgba(239, 239, 234, 0.6) !important;
-  }
-
-/* Le */
-html:not(.dark) .nav.scrolled .text-foreground\/60 {
-  color: rgba(51, 65, 85, 1) !important;
-}
-
-html:not(.dark) .nav.scrolled .text-foreground\/60:hover {
-  color: rgba(51, 65, 85, 0.75) !important;
-}
- html:not(.dark) .lng {
-  color: rgba(239, 239, 234, 0.4) !important;
-}
-
-html:not(.dark) .lng:hover {
-  color: rgba(239, 239, 234, 0.6) !important;
-}
-
-html:not(.dark) .lng.text-gold {
-  color:  oklch(0.78 0.14 78) !important;
-}
-html:not(.dark) .nav.scrolled .lng {
-    color: rgba(51, 65, 85, 1) !important;
-}
-
-html:not(.dark) .nav.scrolled .lng:hover {
-   color: rgba(51, 65, 85, 0.75) !important;
-}
-
-html:not(.dark) .nav.scrolled .lng.text-gold {
-   color:  oklch(0.78 0.14 78) !important;
- /* or your custom gold */
-}
-
-  html:not(.dark) [class*="border-white"] {
-    border-color: rgb(26, 21, 16) !important;
-  }
-
-  html:not(.dark) [class*="bg-[#1a1510]/"] {
-    background-color: var(--surface-panel) !important;
-  }
- html:not(.dark) [class*="light"] {
-    background-color: rgba(255, 255, 255, 0.6) !important;
-  }
-  html:not(.dark) [class*="bg-[#0f0c09]/"] {
-    background-color: var(--surface-panel) !important;
-  }
-  html:not(.dark) .hero-section [class*="text-white/70"] {
-    color: rgba(255, 255, 255, 0.7) !important;
-  }
-
-  html:not(.dark) .hero-section .text-white {
-    color: rgb(255, 255, 255) !important;
-  }
-  html:not(.dark) .hero-section [class*="text-white/60"] {
-    color: rgba(255, 255, 255 ,0.6) !important;
-  }
-   html:not(.dark) .hero-section [class*="text-white/50"] {
-    color: rgba(255, 255, 255 ,0.5) !important;
-  }
-
-  html:not(.dark) .hero-section [class*="border-white/40"] {
-    border-color: rgba(255, 255, 255, 0.4) !important;
-  }
-  html:not(.dark) .hero-section [class*="border-white/30"] {
-    border-color: rgba(255, 255, 255, 0.3) !important;
-  }
-
-  html:not(.dark) .hero-section [class*="bg-white/"] {
-    background-color: rgb(255, 0, 0 / var(--tw-bg-opacity, 1)) !important;
-  }
-  
- html:not(.dark) .link-menu:hover {
-  background-color: rgba(255, 255, 255, 0.1) !important;
-}
-
-html:not(.dark) .hero-section .bg [class*="bg-gold/20"] {
-  background-color: rgb(200 155 60 / 0.2) !important;
-  }
-  html:not(.dark) .hero-section [class*="bg-gold"] {
-    background-color:oklch(0.72 0.13 78) !important;
-  }
-  
-
-  html:not(.dark) .hero-section [class*="bg-[#1a1510]"] {
-    background-color:rgb(26, 21, 16) !important;
-  }
-
-  html:not(.dark) .hero-section [class*="bg-[#0f0c09]"] {
-    background-color: rgb(15 12 9 / var(--tw-bg-opacity, 1)) !important;
-  }
-
-  html:not(.dark) .hero-section [class*="bg-black/"] {
-    background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1)) !important;
-  }}
-
+/* ================================================================
+   Base
+   ================================================================ */
 @layer base {
   * {
     border-color: var(--color-border);
   }
 
   html {
+    color-scheme: light;
     font-family: var(--font-sans);
   }
 
@@ -374,7 +140,6 @@ html:not(.dark) .hero-section .bg [class*="bg-gold/20"] {
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* English headings */
   h1,
   h2,
   h3,
@@ -385,7 +150,31 @@ html:not(.dark) .hero-section .bg [class*="bg-gold/20"] {
     letter-spacing: -0.02em;
   }
 
-  /* Arabic */
+  /* Selects */
+  select {
+    background-color: #fafaf9;
+    color: #292524;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  select:hover {
+    border-color: color-mix(in oklab, var(--color-gold) 40%, var(--color-border));
+  }
+
+  select:focus {
+    outline: none;
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-gold) 15%, transparent);
+  }
+
+  select option {
+    background: #ffffff;
+    color: #292524;
+  }
+
+  /* Arabic (RTL) */
   html[dir="rtl"] {
     font-family: var(--font-arabic);
   }
@@ -412,6 +201,205 @@ html:not(.dark) .hero-section .bg [class*="bg-gold/20"] {
   }
 }
 
+/* ================================================================
+   Utilities
+   ================================================================ */
+@layer utilities {
+  /* Surface helpers */
+  .bg-surface {
+    background-color: var(--surface);
+  }
+
+  .bg-surface-strong {
+    background-color: var(--surface-strong);
+  }
+
+  .bg-surface-panel {
+    background-color: var(--surface-panel);
+  }
+
+  .bg-surface-overlay {
+    background-color: var(--surface-overlay);
+  }
+
+  .border-surface {
+    border-color: var(--surface-border);
+  }
+
+  .text-surface-muted {
+    color: var(--text-muted);
+  }
+
+  /* ----------------------------------------------------------
+     Light-mode mapping for dark-styled markup
+     ---------------------------------------------------------- */
+  [class*="bg-[#1a1510]"] {
+    background-color: var(--surface) !important;
+  }
+
+  [class*="bg-[#0f0c09]"] {
+    background-color: var(--surface-strong) !important;
+  }
+
+  [class*="bg-black/"] {
+    background-color: var(--surface-overlay) !important;
+  }
+
+  [class*="bg-white/5"] {
+    background-color: color-mix(in srgb, var(--surface-panel) 5%, var(--surface)) !important;
+  }
+
+  [class*="bg-white/10"] {
+    background-color: color-mix(in srgb, var(--surface-panel) 10%, var(--surface)) !important;
+  }
+
+  [class*="bg-[#1a1510]/"] {
+    background-color: var(--surface-panel) !important;
+  }
+
+  [class*="bg-[#0f0c09]/"] {
+    background-color: var(--surface-panel) !important;
+  }
+
+  [class*="light"] {
+    background-color: rgba(255, 255, 255, 0.6) !important;
+  }
+
+  [class*="text-white/"] {
+    color: color-mix(in srgb, var(--foreground) 90%, transparent) !important;
+  }
+
+  .text-white {
+    color: var(--foreground) !important;
+  }
+
+  [class*="border-white"] {
+    border-color: rgb(26, 21, 16) !important;
+  }
+
+  /* Escape hatch: keep white text on intentionally dark surfaces */
+  .keep-white-text .text-white,
+  .keep-white-text [class*="text-white/"] {
+    color: rgb(255, 255, 255) !important;
+  }
+
+  /* Navigation */
+  .nav {
+    color: rgba(239, 239, 234, 0.6) !important;
+  }
+
+  .nav:hover {
+    color: rgba(239, 239, 234) !important;
+  }
+
+  .nav.scrolled .text-foreground\/60 {
+    color: rgba(51, 65, 85, 1) !important;
+  }
+
+  .nav.scrolled .text-foreground\/60:hover {
+    color: rgba(51, 65, 85, 0.75) !important;
+  }
+
+  /* Language switcher */
+  .lng {
+    color: rgba(239, 239, 234, 0.4) !important;
+  }
+
+  .lng:hover {
+    color: rgba(239, 239, 234, 0.6) !important;
+  }
+
+  .lng.text-gold {
+    color: oklch(0.78 0.14 78) !important;
+  }
+
+  .nav.scrolled .lng {
+    color: rgba(51, 65, 85, 1) !important;
+  }
+
+  .nav.scrolled .lng:hover {
+    color: rgba(51, 65, 85, 0.75) !important;
+  }
+
+  .nav.scrolled .lng.text-gold {
+    color: oklch(0.78 0.14 78) !important;
+  }
+
+  .link-menu:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* ----------------------------------------------------------
+     Hero stays dark, even in light mode
+     ---------------------------------------------------------- */
+  .hero-section .text-white {
+    color: rgb(255, 255, 255) !important;
+  }
+
+  .hero-section [class*="text-white/70"] {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  .hero-section [class*="text-white/60"] {
+    color: rgba(255, 255, 255, 0.6) !important;
+  }
+
+  .hero-section [class*="text-white/50"] {
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
+
+  .hero-section [class*="border-white/40"] {
+    border-color: rgba(255, 255, 255, 0.4) !important;
+  }
+
+  .hero-section [class*="border-white/30"] {
+    border-color: rgba(255, 255, 255, 0.3) !important;
+  }
+
+  .hero-section [class*="bg-white/5"] {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+  }
+
+  .hero-section [class*="bg-white/10"] {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .hero-section [class*="bg-gold/20"] {
+    background-color: rgb(200 155 60 / 0.2) !important;
+  }
+
+  .hero-section [class*="bg-gold"] {
+    background-color: oklch(0.72 0.13 78) !important;
+  }
+
+  .hero-section [class*="bg-[#1a1510]"] {
+    background-color: rgb(26, 21, 16) !important;
+  }
+
+  .hero-section [class*="bg-[#0f0c09]"] {
+    background-color: rgb(15, 12, 9) !important;
+  }
+
+  .hero-section [class*="bg-black/"] {
+    background-color: rgb(0, 0, 0) !important;
+  }
+
+  /* Misc */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+/* ================================================================
+   Custom utilities
+   ================================================================ */
 @utility text-balance {
   text-wrap: balance;
 }
@@ -426,13 +414,3 @@ html:not(.dark) .hero-section .bg [class*="bg-gold/20"] {
 @utility moroccan-arch {
   clip-path: path("M 0 100 L 0 50 C 0 22, 22 0, 50 0 C 78 0, 100 22, 100 50 L 100 100 Z");
 }
-.hide-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  height: 0;
-};

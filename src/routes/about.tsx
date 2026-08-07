@@ -23,6 +23,8 @@ import {
   Palette
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import gallerybackground from "@/assets/gallery-back.jpg";
+import about from "@/assets/about.jpg";
 
 
 export const Route = createFileRoute("/about")({
@@ -127,9 +129,9 @@ function About() {
 
   const TEAM = [
     { name: "Chef Hassan El Mansouri", roleKey: "about.team.roles.executive_chef", img: chefImg },
-    { name: "Fatima Benouda", roleKey: "about.team.roles.pastry", img: chefImg },
+    { name: "Omar Benouda", roleKey: "about.team.roles.pastry", img: chefImg },
     { name: "Omar Khalidi", roleKey: "about.team.roles.sommelier", img: chefImg },
-    { name: "Nadia Tazi", roleKey: "about.team.roles.host", img: chefImg },
+    { name: "ahmed Tazi", roleKey: "about.team.roles.host", img: chefImg },
   ];
 
   const AWARDS = [
@@ -235,11 +237,27 @@ function About() {
 
   return (
     <>
+     <div
+        className="fixed inset-0 -z-20 pointer-events-none"
+        aria-hidden="true"
+      >
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `url(${BGZ})`,
+            backgroundRepeat: "repeat",
+            backgroundSize: "650px",
+          }}
+        />
+    
+        {/* Global overlay for the shared background */}
+        <div className="absolute inset-0 bg-white/90 dark:bg-black/20" />
+      </div>
       {/* ==================== HERO ==================== */}
       <section className="hero-section relative min-h-90 sm:h-[80dvh] overflow-hidden">
         <motion.div 
           className="absolute inset-0 bg-cover bg-center bg-fixed"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1539020140153-e479b8c22e70')" }}
+          style={{ backgroundImage: `url(${gallerybackground})` }}
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 2.5, ease: "easeOut" }}
@@ -309,17 +327,7 @@ function About() {
         </div>
       </section>
 
-      <div className="relative overflow-hidden dark:bg-[#1a1510]">
-        <div
-          className="fixed inset-0 opacity-10 pointer-events-none"
-          style={{
-            backgroundImage: `url(${BGZ})`,
-            backgroundRepeat: "repeat",
-            backgroundSize: "650px",
-          }}
-        />
-        <div className="absolute inset-0 dark:bg-black/20 bg-white/90 pointer-events-none" />
-
+  
         {/* ==================== STORY SECTION ==================== */}
         <section className="relative py-8 sm:py-12 md:py-16 lg:py-20 bg-transparent">
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-12">
@@ -336,7 +344,7 @@ function About() {
                   className="relative aspect-4/3 sm:aspect-16/10 lg:aspect-auto overflow-hidden rounded-sm shadow-2xl"
                 >
                   <img
-                    src={courtyardImg}
+                    src={about}
                     alt={t("about.story.images.riad_alt")}
                     loading="lazy"
                     className="h-full w-full object-cover"
@@ -645,196 +653,7 @@ function About() {
           </div>
         </section>
 
-        {/* ==================== DESIGN SECTION - RESPONSIVE BENTO GRID ==================== */}
-        <section className="relative py-6 sm:py-6 md:py-10 lg:py-12 bg-transparent">
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-12">
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: "-50px" }}
-              className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20"
-            >
-              <motion.div variants={itemVariants} className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                <span className="h-px w-6 sm:w-10 bg-gold/60" />
-                <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em] text-gold/80">
-                  {t("about.design.badge")}
-                </span>
-                <span className="h-px w-6 sm:w-10 bg-gold/60" />
-              </motion.div>
-              <motion.h2 variants={itemVariants} className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-[1.15] sm:leading-tight text-white">
-                {t("about.design.title_line1")}
-                <br />
-                <em className="not-italic text-gold">{t("about.design.title_line2")}</em>
-              </motion.h2>
-              <motion.p variants={itemVariants} className="mt-4 sm:mt-5 md:mt-6 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg leading-relaxed text-white/60 px-2">
-                {t("about.design.description")}
-              </motion.p>
-            </motion.div>
 
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: "-50px" }}
-              className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-0 grid grid-cols-1 gap-3 sm:gap-4 md:gap-5 lg:grid-cols-4 lg:grid-rows-[2fr_1fr_1fr] lg:gap-6 lg:h-[calc(100vh-var(--header-height,5rem))]"
-            >
-              {/* Item 1 - Large hero spanning 2x2 top-left */}
-              <motion.div
-                variants={itemVariants}
-                className="relative group overflow-hidden rounded-lg sm:rounded-xl shadow-xl col-span-1 sm:col-span-2 lg:col-span-2 lg:row-span-2 aspect-4/3 sm:aspect-3/2 lg:aspect-auto"
-              >
-                <motion.img
-                  src={DESIGN_ELEMENTS[0].img}
-                  alt={DESIGN_ELEMENTS[0].title}
-                  loading="lazy"
-                  className="h-full w-full object-cover"
-                  whileHover={{ scale: 1.08 }}
-                  transition={{ duration: 0.7, ease: "easeOut" }}
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-[#1a1510] via-[#1a1510]/40 to-transparent opacity-90" />
-                <div className="absolute top-2 left-2 sm:top-3 sm:left-3 md:top-4 md:left-4">
-                  <span className="inline-flex items-center gap-1 rounded-full bg-gold/20 backdrop-blur-sm border border-gold/30 px-2 py-0.5 text-[8px] sm:text-[9px] uppercase tracking-widest text-white">
-                    <span className="h-1 w-1 rounded-full bg-white" /> {DESIGN_ELEMENTS[0].label}
-                  </span>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 md:p-5 lg:p-6">
-                  <h3 className="font-display text-sm sm:text-base md:text-lg lg:text-xl text-gray-50 mb-0.5">
-                    {DESIGN_ELEMENTS[0].title}
-                  </h3>
-                  <p className="text-[10px] sm:text-xs md:text-sm lg:text-base text-gray-50/80 leading-relaxed line-clamp-2">
-                    {DESIGN_ELEMENTS[0].desc}
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Item 2 */}
-              <motion.div
-                variants={itemVariants}
-                className="relative group overflow-hidden rounded-lg sm:rounded-xl shadow-xl col-span-1 aspect-4/3 sm:aspect-square lg:aspect-auto"
-              >
-                <motion.img
-                  src={DESIGN_ELEMENTS[1].img}
-                  alt={DESIGN_ELEMENTS[1].title}
-                  loading="lazy"
-                  className="h-full w-full object-cover"
-                  whileHover={{ scale: 1.08 }}
-                  transition={{ duration: 0.7, ease: "easeOut" }}
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-[#1a1510] via-[#1a1510]/30 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-3 md:p-4">
-                  <h3 className="font-display text-xs sm:text-sm md:text-base text-gray-50 mb-0.5">
-                    {DESIGN_ELEMENTS[1].title}
-                  </h3>
-                  <p className="text-[9px] sm:text-[10px] md:text-xs text-gray-50/70 leading-relaxed line-clamp-2">
-                    {DESIGN_ELEMENTS[1].desc}
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Item 3 */}
-              <motion.div
-                variants={itemVariants}
-                className="relative group overflow-hidden rounded-lg sm:rounded-xl shadow-xl col-span-1 aspect-4/3 sm:aspect-square lg:aspect-auto"
-              >
-                <motion.img
-                  src={DESIGN_ELEMENTS[2].img}
-                  alt={DESIGN_ELEMENTS[2].title}
-                  loading="lazy"
-                  className="h-full w-full object-cover"
-                  whileHover={{ scale: 1.08 }}
-                  transition={{ duration: 0.7, ease: "easeOut" }}
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-[#1a1510] via-[#1a1510]/30 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-3 md:p-4">
-                  <h3 className="font-display text-xs sm:text-sm md:text-base text-gray-50 mb-0.5">
-                    {DESIGN_ELEMENTS[2].title}
-                  </h3>
-                  <p className="text-[9px] sm:text-[10px] md:text-xs text-gray-50/70 leading-relaxed line-clamp-2">
-                    {DESIGN_ELEMENTS[2].desc}
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Item 4 - Tall vertical card */}
-              <motion.div
-                variants={itemVariants}
-                className="relative group overflow-hidden rounded-lg sm:rounded-xl shadow-xl col-span-1 sm:col-span-2 lg:col-span-1 lg:row-span-2 aspect-4/3 sm:aspect-3/2 lg:aspect-auto"
-              >
-                <motion.img
-                  src={DESIGN_ELEMENTS[3].img}
-                  alt={DESIGN_ELEMENTS[3].title}
-                  loading="lazy"
-                  className="h-full w-full object-cover"
-                  whileHover={{ scale: 1.08 }}
-                  transition={{ duration: 0.7, ease: "easeOut" }}
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-[#1a1510] via-[#1a1510]/30 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-3 md:p-4">
-                  <h3 className="font-display text-xs sm:text-sm md:text-base text-gray-50 mb-0.5">
-                    {DESIGN_ELEMENTS[3].title}
-                  </h3>
-                  <p className="text-[9px] sm:text-[10px] md:text-xs text-gray-50/70 leading-relaxed line-clamp-2">
-                    {DESIGN_ELEMENTS[3].desc}
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Item 5 */}
-              <motion.div
-                variants={itemVariants}
-                className="relative group overflow-hidden rounded-lg sm:rounded-xl shadow-xl col-span-1 lg:col-span-1 lg:row-span-2 aspect-4/3 sm:aspect-square lg:aspect-auto"
-              >
-                <motion.img
-                  src={DESIGN_ELEMENTS[4].img}
-                  alt={DESIGN_ELEMENTS[4].title}
-                  loading="lazy"
-                  className="h-full w-full object-cover"
-                  whileHover={{ scale: 1.08 }}
-                  transition={{ duration: 0.7, ease: "easeOut" }}
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-[#1a1510] via-[#1a1510]/30 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-3 md:p-4">
-                  <h3 className="font-display text-xs sm:text-sm md:text-base text-gray-50 mb-0.5">
-                    {DESIGN_ELEMENTS[4].title}
-                  </h3>
-                  <p className="text-[9px] sm:text-[10px] md:text-xs text-gray-50/70 leading-relaxed line-clamp-2">
-                    {DESIGN_ELEMENTS[4].desc}
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Item 6 - Wide horizontal card bottom */}
-              <motion.div
-                variants={itemVariants}
-                className="relative group overflow-hidden rounded-lg sm:rounded-xl shadow-xl col-span-1 sm:col-span-2 lg:col-span-2 aspect-4/3 sm:aspect-3/2 lg:aspect-auto"
-              >
-                <motion.img
-                  src={DESIGN_ELEMENTS[5].img}
-                  alt={DESIGN_ELEMENTS[5].title}
-                  loading="lazy"
-                  className="h-full w-full object-cover"
-                  whileHover={{ scale: 1.08 }}
-                  transition={{ duration: 0.7, ease: "easeOut" }}
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-[#1a1510] via-[#1a1510]/40 to-transparent opacity-90" />
-                <div className="absolute top-2 left-2 sm:top-3 sm:left-3 md:top-4 md:left-4">
-                  <span className="inline-flex items-center gap-1 rounded-full bg-gold/20 backdrop-blur-sm border border-gold/30 px-2 py-0.5 text-[8px] sm:text-[9px] uppercase tracking-widest text-white">
-                    <span className="h-1 w-1 rounded-full bg-white" /> {DESIGN_ELEMENTS[5].label}
-                  </span>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 md:p-5">
-                  <h3 className="font-display text-sm sm:text-base md:text-lg text-gray-50 mb-0.5">
-                    {DESIGN_ELEMENTS[5].title}
-                  </h3>
-                  <p className="text-[10px] sm:text-xs md:text-sm text-gray-50/80 leading-relaxed line-clamp-2">
-                    {DESIGN_ELEMENTS[5].desc}
-                  </p>
-                </div>
-              </motion.div>
-            </motion.div>
-          </div>
-        </section>
 
         {/* ==================== HOSPITALITY SECTION ==================== */}
         <section className="relative py-6 sm:py-10 md:py-14 lg:py-16 bg-transparent">
@@ -943,7 +762,6 @@ function About() {
             </motion.div>
           </div>
         </section>
-      </div>
     </>
   );
 }

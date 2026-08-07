@@ -1,52 +1,22 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { createContext, useContext, type ReactNode } from "react";
 
-type Theme = "light" | "dark";
+type Theme = "light";
 
 const ThemeContext = createContext<{ theme: Theme; toggle: () => void }>({
-  theme: "dark",
+  theme: "light",
   toggle: () => {},
 });
 
+// Simplified ThemeProvider: single curated theme (light) with no toggling.
+// This removes runtime theme switching while keeping the `useTheme` hook
+// available so other components do not need refactors.
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  // 1. Synchronously read initial theme to prevent flash/hydration mismatch
-  const getInitialTheme = (): Theme => {
-    if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("theme");
-      if (stored === "light" || stored === "dark") {
-        return stored;
-      }
-    }
-    return "light"; // Default fallback
-  };
-
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
-
-  // 2. Apply theme to DOM and save to localStorage whenever it changes
-  useEffect(() => {
-    const root = document.documentElement;
-    if (theme === "dark") {
-      root.classList.add("dark");
-      root.dataset.theme = "dark";
-    } else {
-      root.classList.remove("dark");
-      root.dataset.theme = "light";
-    }
-    
-    // 3. Try-catch is CRUCIAL for users with strict ad-blockers/privacy extensions
-    try {
-      localStorage.setItem("theme", theme);
-    } catch (err) {
-      console.warn("⚠️ localStorage write failed. Your ad-blocker or browser privacy settings may be blocking it.", err);
-    }
-  }, [theme]);
-
-  // 4. Extracted toggle function for clean, predictable state updates
   const toggle = () => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+    // no-op: theme switching intentionally removed for a single, refined theme
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggle }}>
+    <ThemeContext.Provider value={{ theme: "light", toggle }}>
       {children}
     </ThemeContext.Provider>
   );

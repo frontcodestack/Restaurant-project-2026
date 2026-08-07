@@ -268,9 +268,6 @@ const Menu = createLucideIcon("Menu", [
   ["line", { x1: "4", x2: "20", y1: "6", y2: "6", key: "1owob3" }],
   ["line", { x1: "4", x2: "20", y1: "18", y2: "18", key: "yk5zj1" }]
 ]);
-const Moon = createLucideIcon("Moon", [
-  ["path", { d: "M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z", key: "a7tn18" }]
-]);
 const Music = createLucideIcon("Music", [
   ["path", { d: "M9 18V5l12-2v13", key: "1jmyc2" }],
   ["circle", { cx: "6", cy: "18", r: "3", key: "fqmcym" }],
@@ -323,17 +320,6 @@ const Star = createLucideIcon("Star", [
       key: "r04s7s"
     }
   ]
-]);
-const Sun = createLucideIcon("Sun", [
-  ["circle", { cx: "12", cy: "12", r: "4", key: "4exip2" }],
-  ["path", { d: "M12 2v2", key: "tus03m" }],
-  ["path", { d: "M12 20v2", key: "1lh1kg" }],
-  ["path", { d: "m4.93 4.93 1.41 1.41", key: "149t6j" }],
-  ["path", { d: "m17.66 17.66 1.41 1.41", key: "ptbguv" }],
-  ["path", { d: "M2 12h2", key: "1t8f8n" }],
-  ["path", { d: "M20 12h2", key: "1q8mjw" }],
-  ["path", { d: "m6.34 17.66-1.41 1.41", key: "1m8zz5" }],
-  ["path", { d: "m19.07 4.93-1.41 1.41", key: "1shlcs" }]
 ]);
 const Twitter = createLucideIcon("Twitter", [
   [
@@ -422,41 +408,39 @@ const Youtube = createLucideIcon("Youtube", [
 export {
   ArrowRight as A,
   Building2 as B,
-  Clock as C,
+  CalendarCheck as C,
   Facebook as F,
   Gem as G,
   Heart as H,
   Instagram as I,
   Leaf as L,
-  Moon as M,
+  Menu as M,
   Phone as P,
-  Sun as S,
+  Sparkles as S,
   Twitter as T,
   Users as U,
   Wheat as W,
   X,
   Youtube as Y,
-  Menu as a,
-  MapPin as b,
-  Mail as c,
-  Sparkles as d,
-  CircleCheck as e,
-  ChefHat as f,
-  CalendarCheck as g,
-  Star as h,
-  ChevronRight as i,
-  ChevronLeft as j,
-  Coffee as k,
-  IceCreamCone as l,
-  Fish as m,
-  Croissant as n,
-  Flame as o,
-  Search as p,
-  Camera as q,
-  Award as r,
-  UtensilsCrossed as s,
-  Hand as t,
-  Music as u,
-  Lamp as v,
-  Palette as w
+  MapPin as a,
+  Mail as b,
+  Clock as c,
+  CircleCheck as d,
+  ChefHat as e,
+  Star as f,
+  ChevronRight as g,
+  ChevronLeft as h,
+  Coffee as i,
+  IceCreamCone as j,
+  Fish as k,
+  Croissant as l,
+  Flame as m,
+  Search as n,
+  Camera as o,
+  Award as p,
+  UtensilsCrossed as q,
+  Hand as r,
+  Music as s,
+  Lamp as t,
+  Palette as u
 };

@@ -1,11 +1,10 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useTranslation } from "react-i18next";
-import { Switch } from "@/components/ui/switch";
-import { useTheme } from "./ThemeProvider";
+// Theme switching removed to maintain a single curated restaurant theme
 
 const NAV = [
   { to: "/", labelKey: "nav.home" },
@@ -56,7 +55,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const navbarRef = useRef<HTMLElement>(null);
-  const { theme, toggle } = useTheme();
+  // theme is intentionally static; ThemeProvider provides a single theme.
   const path = useRouterState({ select: (s) => s.location.pathname });
   const { t, i18n } = useTranslation();
 
@@ -122,8 +121,8 @@ export function Navbar() {
     `
       mx-4 mt-4 rounded-2xl
       bg-white/95 dark:bg-neutral-950/85
-      backdrop-blur-2xl
-      shadow-[0_4px_12px_rgba(15,81,50,0.04),0_16px_48px_rgba(15,81,50,0.10),0_32px_80px_rgba(0,0,0,0.08)]
+      backdrop-blur-sm
+      shadow-md
     `
   )}
   ref={navbarRef}
@@ -160,13 +159,6 @@ export function Navbar() {
 
         {/* ACTIONS */}
         <div className="hidden items-center gap-6 lg:flex">
-          {/* Theme Switch */}
-          <div className="flex items-center gap-2 rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 px-3 py-2 text-[11px] text-black dark:text-white shadow-sm">
-            <Sun className={cn("h-4 w-4", theme === "light" ? "text-gold" : "text-white/40")} />
-            <Switch  dir={isRTL ? "rtl" : "ltr"} checked={theme === "dark"} onCheckedChange={toggle} aria-label="Toggle theme" />
-            <Moon className={cn("h-4 w-4", theme === "dark" ? "text-gold" : "text-white")} />
-          </div>
-
           {/* Language Switcher */}
           <div className="flex items-center gap-2">
             {LANGS.map((l) => {
@@ -235,12 +227,7 @@ export function Navbar() {
 
               {/* Controls Row */}
               <div className="flex items-center justify-between gap-2">
-                {/* Theme */}
-                <div className="flex items-center gap-1.5 rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 px-2.5 py-1.5">
-                  <Sun className={cn("h-3 w-3", theme === "light" ? "text-gold" : "text-white/40")} />
-                  <Switch dir={isRTL ? "rtl" : "ltr"} checked={theme === "dark"} onCheckedChange={toggle} aria-label="Toggle theme" />
-                  <Moon className={cn("h-3 w-3", theme === "dark" ? "text-gold" : "text-black/40")} />
-                </div>
+                {/* (theme switch removed) */}
 
                 {/* Languages */}
                 <div className="flex items-center gap-3">

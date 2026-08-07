@@ -3,7 +3,7 @@ import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import BGZ from "@/assets/BGZ.svg";
-import BGC from "@/assets/contactBg.png";
+import BGC from "@/assets/contactBg.jpg";
 import { 
   MapPin, 
   Phone, 

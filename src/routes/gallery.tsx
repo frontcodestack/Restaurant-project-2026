@@ -15,6 +15,7 @@ import {
 import { GALLERY, type GalleryCategory } from "@/lib/gallery-data";
 import { cn } from "@/lib/utils";
 import BGZ from "@/assets/BGZ.svg";
+import gallerybackground from "@/assets/gallery-back.jpg";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -163,7 +164,6 @@ function GalleryPage() {
 
   return (
     <div dir={i18n.dir()} className="overflow-x-hidden">
-      {/* ==================== HERO SECTION ==================== */}
           <div
           className="fixed inset-0 -z-20 pointer-events-none"
           aria-hidden="true"
@@ -180,10 +180,12 @@ function GalleryPage() {
           {/* Global overlay for the shared background */}
           <div className="absolute inset-0 bg-white/90 dark:bg-black/20" />
         </div>
+      {/* ==================== HERO SECTION ==================== */}
+
       <section className="hero-section relative min-h-90 sm:h-[80dvh] overflow-hidden">
         <motion.div 
           className="absolute inset-0 bg-cover bg-center bg-fixed"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1539020140153-e479b8c22e70')" }}
+          style={{ backgroundImage: `url(${gallerybackground})` }}
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 2.5, ease: "easeOut" }}
@@ -399,8 +401,8 @@ function GalleryPage() {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, margin: "-50px" }}
-                className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4 lg:grid-rows-[260px_260px_220px] lg:gap-6"
-              >
+                className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-2 lg:grid-cols-4 lg:grid-rows-[260px_260px_220px] lg:gap-2"
+               >
                 <AnimatePresence mode="popLayout">
                   {visibleItems.map((g, i) => {
                     const layoutType = i % 6;

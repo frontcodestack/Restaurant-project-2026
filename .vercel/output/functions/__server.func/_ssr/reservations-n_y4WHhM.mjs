@@ -2,7 +2,7 @@ import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { B as BGZ } from "./BGZ-CG54wZoT.mjs";
 import { a as axios } from "../_libs/axios.mjs";
 import { u as useTranslation } from "../_libs/react-i18next.mjs";
-import { C as Clock, U as Users, d as Sparkles, e as CircleCheck, A as ArrowRight, P as Phone, f as ChefHat, g as CalendarCheck, h as Star, H as Heart, B as Building2, c as Mail } from "../_libs/lucide-react.mjs";
+import { c as Clock, U as Users, S as Sparkles, d as CircleCheck, A as ArrowRight, P as Phone, e as ChefHat, C as CalendarCheck, f as Star, H as Heart, B as Building2, b as Mail } from "../_libs/lucide-react.mjs";
 import { m as motion, A as AnimatePresence } from "../_libs/framer-motion.mjs";
 import "../_libs/form-data.mjs";
 import "fs";
